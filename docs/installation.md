@@ -3,7 +3,7 @@
 Install `@vueuse/gesture` using your **package manager** of choice.
 
 ```bash
-yarn add @vueuse/gesture
+pnpm add @vueuse/gesture
 ```
 
 Please note that if you are using **Vue 2** or **Nuxt**, you need to install the [**Composition API**](https://v3.vuejs.org/guide/composition-api-introduction.html).

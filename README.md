@@ -24,7 +24,7 @@ Let's **get started** quickly by **installing** the **package** and adding the *
 From your **terminal**:
 
 ```bash
-yarn add @vueuse/gesture
+pnpm add @vueuse/gesture
 ```
 
 In your **Vue** app **entry** file:
