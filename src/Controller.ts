@@ -72,7 +72,7 @@ export default class Controller {
   public clean = (): void => {
     const { eventOptions, domTarget } = this.config
 
-    const _target = unref(domTarget)
+    const _target = unref(domTarget) as GestureTarget
 
     if (_target)
       removeListeners(_target, takeAll(this.domListeners), eventOptions)
@@ -110,7 +110,7 @@ export function clearAllWindowListeners(controller: Controller) {
     config: { window: el, eventOptions },
     windowListeners,
   } = controller
-  const _el = unref(el)
+  const _el = unref(el) as GestureTarget
 
   if (!_el) return
 
@@ -127,7 +127,7 @@ export function clearWindowListeners(
   stateKey: StateKey,
   options = config.eventOptions,
 ) {
-  const _window = unref(config.window)
+  const _window = unref(config.window) as GestureTarget
 
   if (!_window) return
 
@@ -142,7 +142,7 @@ export function updateWindowListeners(
   listeners: [string, Fn][] = [],
   options = config.eventOptions,
 ) {
-  const _window = unref(config.window)
+  const _window = unref(config.window) as GestureTarget
 
   if (!_window) return
 
@@ -157,7 +157,7 @@ function updateDomListeners(
 ) {
   const { eventOptions, domTarget } = config
 
-  const _target = unref(domTarget)
+  const _target = unref(domTarget) as GestureTarget
 
   if (!_target) throw new Error('domTarget must be defined')
 
