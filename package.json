@@ -18,6 +18,7 @@
     "use-gesture-vue",
     "interactive-vue"
   ],
+  "sideEffects": false,
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm-bundler.js",
   "unpkg": "dist/index.global.js",
