@@ -1,17 +1,22 @@
 {
-  "name": "vue-composable-starter",
+  "name": "@vueuse/gesture",
   "version": "1.0.0",
-  "description": "🪝🪝 The next big hook",
-  "repository": "https://github.com/Tahul/vue-composable-starter",
+  "description": "🕹 Vue Composables making your app interactive",
+  "repository": "https://github.com/vueuse/gesture",
   "bugs": {
-    "url": "https://github.com/Tahul/vue-composable-starter/issues"
+    "url": "https://github.com/vueuse/gesture/issues"
   },
-  "homepage": "https://github.com/Tahul/vue-composable-starter#readme",
+  "homepage": "https://github.com/vueuse/gesture#readme",
   "author": "Yaël GUILLOUX <yael.guilloux@gmail.com>",
   "license": "MIT",
   "keywords": [
     "vue",
-    "hook"
+    "hook",
+    "gesture",
+    "motion",
+    "v-gesture",
+    "use-gesture-vue",
+    "interactive-vue"
   ],
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm-bundler.js",
