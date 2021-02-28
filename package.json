@@ -32,7 +32,8 @@
     "test:unit": "jest",
     "test": "yarn run test:types && yarn run test:unit",
     "dev:demo": "vite",
-    "build:demo": "vuedx-typecheck . && vite build"
+    "build:demo": "vite build",
+    "serve:demo": "vite serve demo/dist"
   },
   "files": [
     "dist/**/*",
