@@ -12,7 +12,7 @@
 
 This **package** is **currently** under **active** development.
 
-If you have any feature suggestion, please submit an issue or ping me on [**Twitter**](https://twitter.com/yaeeelglx).
+If you have any **suggestion**, please **submit** an **issue** or **ping** me on [**Twitter**](https://twitter.com/yaeeelglx).
 
 ## Credits
 
