@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [vue()],
   alias: [
     {
-      find: '@lib',
+      find: '@vueuse/gesture',
       replacement: resolve(__dirname, './src/index.ts'),
     },
   ],

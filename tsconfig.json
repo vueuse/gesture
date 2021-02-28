@@ -8,7 +8,7 @@
     "demo/**/*.tsx",
     "demo/**/*.vue"
   ],
-  "exclude": ["dist", "node_modules", "vue-demi"],
+  "exclude": ["dist", "node_modules"],
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": ".",
@@ -35,14 +35,15 @@
     "removeComments": false,
     "jsx": "preserve",
     "lib": ["esnext", "dom"],
-    "types": ["node", "jest", "vite/client"],
+    "types": ["node", "jest"],
     "plugins": [
       {
         "name": "@vuedx/typescript-plugin-vue"
       }
     ],
     "paths": {
-      "@lib": ["./src"]
+      "@vueuse/motion": ["./src/index.ts"],
+      "@vueuse/motion/*": ["./src/*"]
     }
   }
 }
