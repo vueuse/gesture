@@ -42,8 +42,8 @@
       }
     ],
     "paths": {
-      "@vueuse/motion": ["./src/index.ts"],
-      "@vueuse/motion/*": ["./src/*"]
+      "@vueuse/gesture": ["./src/index.ts"],
+      "@vueuse/gesture/*": ["./src/*"]
     }
   }
 }
