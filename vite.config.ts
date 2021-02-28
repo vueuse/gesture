@@ -6,10 +6,12 @@ import WindiCSS from 'vite-plugin-windicss'
 export default defineConfig({
   root: 'demo/',
   plugins: [vue(), WindiCSS()],
-  alias: [
-    {
-      find: '@vueuse/gesture',
-      replacement: resolve(__dirname, './src/index.ts'),
-    },
-  ],
+  resolve: {
+    alias: [
+      {
+        find: '@vueuse/gesture',
+        replacement: resolve(__dirname, './src/index.ts'),
+      },
+    ],
+  },
 })
