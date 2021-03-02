@@ -1,5 +1,5 @@
 <template>
-  <svg
+  <!--<svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 48 48"
     width="256px"
@@ -112,6 +112,7 @@
       d="M23.743,14.5H26.2a0,0,0,0,1,0,0V27.856a1.2,1.2,0,0,1-1.2,1.2h-.051a1.2,1.2,0,0,1-1.2-1.2V14.5A0,0,0,0,1,23.743,14.5Z"
     />
     <circle
+      ref="joystick"
       cx="24.971"
       cy="8.653"
       r="6.735"
@@ -145,5 +146,53 @@
       y="30"
       fill="url(#xQx3XT2hq1~NP885R5MTTg)"
     />
-  </svg>
+  </svg>-->
+
+  <div
+    ref="joystick"
+    style="width: 300px; height: 200px; background-color: blue"
+  ></div>
 </template>
+
+<script setup lang="ts">
+import { useDrag } from '@vueuse/gesture'
+import { useMotion } from '@vueuse/motion'
+import { ref, watch } from 'vue'
+
+const joystick = ref()
+
+const instance = useMotion(joystick, {
+  initial: {
+    x: 0,
+    y: 0,
+  },
+})
+
+watch(joystick, (domTarget) => {
+  if (!domTarget) return
+
+  useDrag(
+    ({ movement: [x, y], dragging, velocities, velocity }) => {
+      console.log({ x, y, dragging, velocities, velocity })
+
+      instance.apply({
+        x,
+        y,
+      })
+
+      if (!dragging) {
+        instance.apply({
+          x: 0,
+          y: 0,
+        })
+      }
+    },
+    {
+      domTarget,
+      distanceBounds: {
+        max: 5,
+      },
+    },
+  )()
+})
+</script>
