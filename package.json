@@ -42,7 +42,9 @@
     "README.md"
   ],
   "dependencies": {
-    "@vueuse/motion": "^1.2.7",
+    "@vueuse/core": "^4.3.4",
+    "@vueuse/motion": "^1.2.8",
+    "@vueuse/shared": "^4.3.4",
     "vue-demi": "^0.7.1"
   },
   "peerDependencies": {

@@ -1054,10 +1054,18 @@
     "@vueuse/shared" "4.3.1"
     vue-demi latest
 
-"@vueuse/motion@^1.2.7":
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-1.2.7.tgz#24a56a7355a8e52f4b3846f8e260f2f00b6ad79f"
-  integrity sha512-kyh6ZpoDi8ensj6ZJQ4uzke1GzFidUOxRIt7xgvwSlrXFQ6y/wl0wubsMlxKqEmxtf58MQYYoiX+J4CBKa9C5Q==
+"@vueuse/core@^4.3.4":
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-4.3.4.tgz#32dcd4b48536c6b8051495389a259ed1b96e9413"
+  integrity sha512-OKMJNdQltsMu8l9MMQ0qvjKK4kO5x0tHveqn6ypWcSQ/NSSMRcUynbE4G404DM52Adg3aFtgrirXcM4uoM6cjg==
+  dependencies:
+    "@vueuse/shared" "4.3.4"
+    vue-demi latest
+
+"@vueuse/motion@^1.2.8":
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-1.2.8.tgz#02d4ae9d15a710ba28a85055f2444a027193493f"
+  integrity sha512-fMKqRHrxMDMn8/rKqesUSRxTLFfZaGP5QPdFnGvhJFjviAZtYJxvCVo2so1tEEic5ppBRl5mFe259TM5k9I02w==
   dependencies:
     "@vueuse/core" "^4.3.0"
     popmotion "^9.2.1"
@@ -1067,6 +1075,13 @@
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-4.3.1.tgz#6f0f6c82f096ca329d9541d6f37f29a2d19dd107"
   integrity sha512-K2F+z16BqcOtEp/pJEK7cPvOMsgBChGGfx0UAatXt8Awk+b4Vi6L6//KclAV1N7w+e9u2kJlC1Ld8GqdY5ZxRg==
+  dependencies:
+    vue-demi latest
+
+"@vueuse/shared@4.3.4", "@vueuse/shared@^4.3.4":
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-4.3.4.tgz#fe8e66842da4b7b5005a4a427d673e89f472f958"
+  integrity sha512-O1PxiG8cSD4YQKHJXWAeBVVTJNpBwCse7TkTsMqqLzqOjP2apbncfPzOcYJHVR5NkUXmtvPBIWAQuRavXKmHSw==
   dependencies:
     vue-demi latest
 
