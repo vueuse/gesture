@@ -75,9 +75,11 @@ export default class Controller {
   public clean = (): void => {
     const { eventOptions, domTarget } = this.config
 
-    if (domTarget)
-      removeListeners(domTarget, takeAll(this.domListeners), eventOptions)
+    if (domTarget && domTarget.value)
+      removeListeners(domTarget.value, takeAll(this.domListeners), eventOptions)
+
     Object.values(this.timeouts).forEach(clearTimeout)
+
     clearAllWindowListeners(this)
   }
 }
@@ -109,11 +111,11 @@ export function clearAllWindowListeners(controller: Controller) {
     config: { window: el, eventOptions },
     windowListeners,
   } = controller
-  if (!el) return
+  if (!el || !el.value) return
 
   for (let stateKey in windowListeners) {
     const handlers = windowListeners[stateKey as StateKey]
-    removeListeners(el, handlers, eventOptions)
+    removeListeners(el.value, handlers, eventOptions)
   }
 
   controller.windowListeners = {}
@@ -124,8 +126,8 @@ export function clearWindowListeners(
   stateKey: StateKey,
   options = config.eventOptions,
 ) {
-  if (!config.window) return
-  removeListeners(config.window, windowListeners[stateKey], options)
+  if (!config.window || !config.window.value) return
+  removeListeners(config.window.value, windowListeners[stateKey], options)
   delete windowListeners[stateKey]
 }
 
@@ -135,26 +137,32 @@ export function updateWindowListeners(
   listeners: [string, Fn][] = [],
   options = config.eventOptions,
 ) {
-  if (!config.window) return
-  removeListeners(config.window, windowListeners[stateKey], options)
-  addListeners(config.window, (windowListeners[stateKey] = listeners), options)
+  if (!config.window || !config.window.value) return
+  removeListeners(config.window.value, windowListeners[stateKey], options)
+  addListeners(
+    config.window.value,
+    (windowListeners[stateKey] = listeners),
+    options,
+  )
 }
 
 function updateDomListeners(
   { config, domListeners }: Controller,
   bindings: { [key: string]: Function[] },
 ) {
-  if (!config.domTarget) throw new Error('domTarget must be defined')
+  if (!config.domTarget || !config.domTarget.value)
+    throw new Error('domTarget must be defined')
+
   const { eventOptions, domTarget } = config
 
-  removeListeners(domTarget, takeAll(domListeners), eventOptions)
+  removeListeners(domTarget.value, takeAll(domListeners), eventOptions)
 
   for (let [key, fns] of Object.entries(bindings)) {
     const name = key.slice(2).toLowerCase()
     domListeners.push([name, chainFns(...fns)])
   }
 
-  addListeners(domTarget, domListeners, eventOptions)
+  addListeners(domTarget.value, domListeners, eventOptions)
 }
 
 function getPropsListener(
