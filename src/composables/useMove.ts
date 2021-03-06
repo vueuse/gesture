@@ -18,12 +18,17 @@ export function useMove<K = EventTypes['move']>(
   config: UseMoveConfig | {} = {},
 ) {
   RecognizersMap.set('move', MoveRecognizer)
+
   const buildMoveConfig = ref()
+
   if (!buildMoveConfig.value) {
     buildMoveConfig.value = memoize(_buildMoveConfig, isEqual)
   }
-  return useRecognizers<UseMoveConfig>(
+
+  const recognizers = useRecognizers<UseMoveConfig>(
     { move: handler },
     buildMoveConfig.value(config),
   )
+
+  recognizers()
 }

@@ -25,8 +25,10 @@ export function useScroll<K = EventTypes['scroll']>(
     buildScrollConfig.value = memoize(_buildScrollConfig, isEqual)
   }
 
-  return useRecognizers<UseScrollConfig>(
+  const recognizers = useRecognizers<UseScrollConfig>(
     { scroll: handler },
     buildScrollConfig.value(config),
   )
+
+  recognizers()
 }

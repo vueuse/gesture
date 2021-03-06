@@ -18,12 +18,17 @@ export function usePinch<K = EventTypes['pinch']>(
   config: UsePinchConfig | {} = {},
 ) {
   RecognizersMap.set('pinch', PinchRecognizer)
+
   const buildPinchConfig = ref()
+
   if (!buildPinchConfig.value) {
     buildPinchConfig.value = memoize(_buildPinchConfig, isEqual)
   }
-  return useRecognizers<UsePinchConfig>(
+
+  const recognizers = useRecognizers<UsePinchConfig>(
     { pinch: handler },
     buildPinchConfig.value(config),
   )
+
+  recognizers()
 }

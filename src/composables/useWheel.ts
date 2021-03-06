@@ -18,12 +18,17 @@ export function useWheel<K = EventTypes['wheel']>(
   config: UseWheelConfig | {} = {},
 ) {
   RecognizersMap.set('wheel', WheelRecognizer)
+
   const buildWheelConfig = ref()
+
   if (!buildWheelConfig.value) {
     buildWheelConfig.value = memoize(_buildWheelConfig, isEqual)
   }
-  return useRecognizers<UseWheelConfig>(
+
+  const recognizers = useRecognizers<UseWheelConfig>(
     { wheel: handler },
     buildWheelConfig.value(config),
   )
+
+  recognizers()
 }

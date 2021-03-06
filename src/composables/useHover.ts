@@ -18,12 +18,17 @@ export function useHover<K = EventTypes['hover']>(
   config: UseHoverConfig | {} = {},
 ) {
   RecognizersMap.set('hover', MoveRecognizer)
-  const buildHoverConfig = ref<any>()
+
+  const buildHoverConfig = ref()
+
   if (!buildHoverConfig.value) {
     buildHoverConfig.value = memoize(_buildHoverConfig, isEqual)
   }
-  return useRecognizers<UseHoverConfig>(
+
+  const recognizers = useRecognizers<UseHoverConfig>(
     { hover: handler },
     buildHoverConfig.value(config),
   )
+
+  recognizers()
 }
