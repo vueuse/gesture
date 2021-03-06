@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'vue'
+import { HTMLAttributes, Ref } from 'vue'
 import type Controller from '../Controller'
 import type Recognizer from '../recognizers/Recognizer'
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
@@ -9,8 +9,8 @@ export type Vector2 = [number, number]
 export type Fn = any
 
 export interface GenericOptions {
-  domTarget?: EventTarget
-  window?: EventTarget
+  domTarget?: Ref<EventTarget>
+  window?: Ref<EventTarget>
   eventOptions?: { capture?: boolean; passive?: boolean }
   enabled?: boolean
   transform?: (v: Vector2) => Vector2
@@ -76,9 +76,9 @@ export type UseGestureConfig = GenericOptions & {
 }
 
 export interface InternalGenericOptions {
-  domTarget?: EventTarget
+  domTarget?: Ref<EventTarget>
+  window?: Ref<EventTarget>
   eventOptions: { capture?: boolean; passive?: boolean }
-  window?: EventTarget
   enabled: boolean
   transform?: (v: Vector2) => Vector2
 }
@@ -378,5 +378,5 @@ export type Handlers<T extends AnyGestureEventTypes = EventTypes> = Partial<
 >
 
 export type HookReturnType<
-  T extends { domTarget?: EventTarget }
+  T extends { domTarget?: Ref<EventTarget> }
 > = T['domTarget']
