@@ -11,7 +11,7 @@
     </div>
 
     <div class="flex flex-col items-center justify-center">
-      <a class="mt-12 mb-6" href="https://github.com/vueuse/motion">
+      <a class="mt-12 mb-6" href="https://github.com/vueuse/gesture">
         ↩️&nbsp;&nbsp;Bring me back to GitHub
       </a>
 
