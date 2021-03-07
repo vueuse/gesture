@@ -65,11 +65,6 @@ export default class Controller {
     }
   }
 
-  public effect = () => {
-    if (this.config.domTarget) this.bind()
-    return this.clean
-  }
-
   /**
    * Function ran on component unmount: cleans timeouts and removes dom listeners set by the bind function.
    */
