@@ -150,57 +150,41 @@
 
   <div
     ref="joystick"
-    class="w-32 h-32 bg-blue-400 rounded-lg border-4 border-blue-600 cursor-move"
+    class="w-32 h-32 bg-blue-400 rounded-lg border-4 border-blue-600"
   />
 </template>
 
 <script setup lang="ts">
 import { useDrag } from '@vueuse/gesture'
 import { useMotion } from '@vueuse/motion'
-import type { TransitionDefinition } from '@vueuse/motion'
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 
-const joystick = ref()
+const joystick = ref<HTMLElement>()
 
 const instance = useMotion(joystick, {
   initial: {
-    x: 0,
+    opacity: 0,
+    y: 200,
+  },
+  enter: {
     y: 0,
+    opacity: 1,
+    scale: 1,
   },
 })
 
-watch(joystick, (domTarget) => {
-  if (!domTarget) return
+useDrag(
+  ({ movement: [x, y], dragging, event, ...args }) => {
+    if (event.pointerType === 'touch') {
+      instance.set({ x, y })
+    } else {
+      instance.apply({ x, y })
+    }
 
-  useDrag(
-    ({ movement: [x, y], dragging, velocity }) => {
-      const transition: TransitionDefinition = {
-        velocity,
-        type: 'spring',
-        damping: 17.5,
-        stiffness: 500,
-      }
-
-      instance.set({
-        x,
-        y,
-        transition,
-      })
-
-      if (!dragging) {
-        instance.apply({
-          x: 0,
-          y: 0,
-          transition,
-        })
-      }
-    },
-    {
-      domTarget,
-      distanceBounds: {
-        max: 5,
-      },
-    },
-  )()
-})
+    if (!dragging) instance.apply({ x: 0, y: 0 })
+  },
+  {
+    domTarget: instance.target,
+  },
+)
 </script>
