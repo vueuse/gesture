@@ -1,21 +1,19 @@
 import {
   InternalConfig,
-  UseMoveConfig,
-  UseHoverConfig,
   UseDragConfig,
+  UseGestureConfig,
+  UseHoverConfig,
+  UseMoveConfig,
   UsePinchConfig,
   UseScrollConfig,
   UseWheelConfig,
 } from '../types'
-
 import {
-  getInternalGenericOptions,
   getInternalCoordinatesOptions,
-  getInternalDragOptions,
   getInternalDistanceAngleOptions,
+  getInternalDragOptions,
+  getInternalGenericOptions,
 } from '../utils/config'
-
-import { UseGestureConfig } from '../types'
 
 export function _buildMoveConfig({
   domTarget,
@@ -120,7 +118,7 @@ export function _buildWheelConfig({
 }
 
 export function buildComplexConfig(
-  config: UseGestureConfig = {},
+  config: UseGestureConfig,
   actions: Set<string> = new Set(),
 ) {
   const {
