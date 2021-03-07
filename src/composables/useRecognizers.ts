@@ -1,9 +1,8 @@
-import { watch } from 'vue'
+import { tryOnMounted } from '@vueuse/shared'
+import { watch } from 'vue-demi'
 import Controller from '../Controller'
 import { RecognizersMap } from '../recognizers/Recognizer'
 import {
-  GenericOptions,
-  HookReturnType,
   InternalConfig,
   InternalHandlers,
   NativeHandlers,
@@ -18,24 +17,24 @@ import {
  * @param config
  * @param nativeHandlers - native handlers such as onClick, onMouseDown, etc.
  */
-export default function useRecognizers<Config extends Partial<GenericOptions>>(
+export default function useRecognizers(
   handlers: Partial<InternalHandlers>,
   config: InternalConfig,
   nativeHandlers: Partial<NativeHandlers> = {},
-): (...args: any[]) => HookReturnType<Config> {
+) {
   const classes = resolveClasses(handlers)
-
   const controller = new Controller(classes)
   controller!.config = config
   controller!.handlers = handlers
   controller!.nativeRefs = nativeHandlers
 
-  watch([], () => controller.effect, {
+  // Bind once domTarget change and is defined
+  watch(config.domTarget, (newVal) => newVal && controller.bind(), {
     immediate: true,
   })
 
-  // @ts-ignore
-  return controller.bind
+  // Unbind when host component unmounts
+  tryOnMounted(controller.clean)
 }
 
 function resolveClasses(internalHandlers: Partial<InternalHandlers>) {
