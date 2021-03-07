@@ -1,3 +1,6 @@
+import { MotionTarget } from '@vueuse/motion'
+import sync from 'framesync'
+import { nextTick } from 'vue-demi'
 import {
   addBindings,
   addEventIds,
@@ -32,7 +35,10 @@ export class DragRecognizer extends CoordinatesRecognizer<'drag'> {
       // @ts-expect-error
       target.setPointerCapture(pointerId)
     }
-    this.updateGestureState({ _dragTarget: target, _dragPointerId: pointerId })
+    this.updateGestureState({
+      _dragTarget: target as MotionTarget,
+      _dragPointerId: pointerId,
+    })
   }
 
   private releasePointerCapture = () => {
@@ -140,7 +146,8 @@ export class DragRecognizer extends CoordinatesRecognizer<'drag'> {
       cancel: this.onCancel,
     })
     this.clearTimeout()
-    this.fireGestureHandler()
+
+    sync.update(() => this.fireGestureHandler())
   }
 
   onDragChange = (event: PointerEvent): void => {
@@ -204,7 +211,7 @@ export class DragRecognizer extends CoordinatesRecognizer<'drag'> {
 
     this.updateGestureState({ ...genericPayload, ...kinematics, _dragIsTap })
 
-    this.fireGestureHandler()
+    sync.update(() => this.fireGestureHandler())
   }
 
   onDragEnd = (event: PointerEvent): void => {
@@ -258,7 +265,7 @@ export class DragRecognizer extends CoordinatesRecognizer<'drag'> {
     if (this.state.canceled) return
     this.updateGestureState({ canceled: true, _active: false })
     this.updateSharedState({ buttons: 0 })
-    setTimeout(() => this.fireGestureHandler(), 0)
+    nextTick(this.fireGestureHandler)
   }
 
   onClick = (event: UIEvent): void => {
