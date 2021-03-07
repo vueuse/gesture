@@ -1,3 +1,4 @@
+import { MotionTarget } from '@vueuse/motion'
 import {
   EventHandlers,
   EventHandlersKey,
@@ -195,20 +196,24 @@ export function addBindings(bindings: any, name: string, fn: Fn): void {
 }
 
 function addListeners(
-  el: EventTarget,
+  el: MotionTarget,
   listeners: Array<[string, Fn]> = [],
   options = {},
 ) {
+  if (!el) return
+
   for (let [eventName, eventHandler] of listeners) {
     el.addEventListener(eventName, eventHandler, options)
   }
 }
 
 function removeListeners(
-  el: EventTarget,
+  el: MotionTarget,
   listeners: Array<[string, Fn]> = [],
   options = {},
 ) {
+  if (!el) return
+
   for (let [eventName, eventHandler] of listeners) {
     el.removeEventListener(eventName, eventHandler, options)
   }
