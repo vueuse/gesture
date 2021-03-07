@@ -139,7 +139,7 @@ const InternalDistanceAngleOptionsNormalizers = {
 const InternalDragOptionsNormalizers = {
   ...InternalCoordinatesOptionsNormalizers,
 
-  useTouch(value = false) {
+  useTouch(value = true) {
     return value && supportsTouchEvents()
   },
   experimental_preventWindowScrollY(value = false) {
@@ -181,9 +181,8 @@ const InternalDragOptionsNormalizers = {
 }
 
 export function getInternalGenericOptions(
-  config: GenericOptions = {},
+  config: GenericOptions,
 ): InternalGenericOptions {
-  // TODO warn when passive is set to true and domTarget is undefined
   return resolveWith<GenericOptions, InternalGenericOptions>(
     config,
     InternalGenericOptionsNormalizers,
