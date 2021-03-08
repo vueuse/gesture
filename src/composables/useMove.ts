@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref } from 'vue-demi'
 import { MoveRecognizer } from '../recognizers/MoveRecognizer'
 import { RecognizersMap } from '../recognizers/Recognizer'
 import { EventTypes, Handler, UseMoveConfig } from '../types'
@@ -25,10 +25,5 @@ export function useMove<K = EventTypes['move']>(
     buildMoveConfig.value = memoize(_buildMoveConfig, isEqual)
   }
 
-  const recognizers = useRecognizers<UseMoveConfig>(
-    { move: handler },
-    buildMoveConfig.value(config),
-  )
-
-  recognizers()
+  useRecognizers({ move: handler }, buildMoveConfig.value(config))
 }
