@@ -58,7 +58,7 @@ function sortHandlers(handlers: object) {
  */
 export function useGesture<T extends AnyGestureEventTypes = EventTypes>(
   _handlers: Handlers<T>,
-  config: UseGestureConfig = {},
+  config: UseGestureConfig,
 ) {
   const [handlers, nativeHandlers, actions] = sortHandlers(_handlers)
 
@@ -84,11 +84,7 @@ export function useGesture<T extends AnyGestureEventTypes = EventTypes>(
     internalHandlers.pinch = includeStartEndHandlers(handlers, 'onPinch')
   if (actions.has('onHover')) internalHandlers.hover = handlers.onHover
 
-  return useRecognizers<UseGestureConfig>(
-    internalHandlers,
-    mergedConfig,
-    nativeHandlers,
-  )
+  useRecognizers(internalHandlers, mergedConfig, nativeHandlers)
 }
 
 /**
