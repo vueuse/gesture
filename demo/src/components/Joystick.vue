@@ -174,11 +174,14 @@ const instance = useMotion(joystick, {
 })
 
 useDrag(
-  ({ movement: [x, y], dragging, event, ...args }) => {
+  ({ movement: [x, y], dragging, event }) => {
     if (event.pointerType === 'touch') {
       instance.set({ x, y })
     } else {
-      instance.apply({ x, y })
+      instance.apply({
+        x,
+        y,
+      })
     }
 
     if (!dragging) instance.apply({ x: 0, y: 0 })
