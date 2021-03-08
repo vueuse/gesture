@@ -1,3 +1,4 @@
+import sync from 'framesync'
 import { addBindings } from '../Controller'
 import { getGenericEventData, getPointerEventValues } from '../utils/event'
 import CoordinatesRecognizer from './CoordinatesRecognizer'
@@ -27,7 +28,7 @@ export class MoveRecognizer extends CoordinatesRecognizer<'move'> {
     })
 
     this.updateGestureState(this.getMovement(values))
-    this.fireGestureHandler()
+    sync.update(() => this.fireGestureHandler())
   }
 
   onMoveChange = (event: PointerEvent): void => {
@@ -39,7 +40,7 @@ export class MoveRecognizer extends CoordinatesRecognizer<'move'> {
       ...this.getKinematics(values, event),
     })
 
-    this.fireGestureHandler()
+    sync.update(() => this.fireGestureHandler())
   }
 
   onMoveEnd = (): void => {
@@ -48,7 +49,8 @@ export class MoveRecognizer extends CoordinatesRecognizer<'move'> {
     const values = this.state.values
     this.updateGestureState(this.getMovement(values))
     this.updateGestureState({ velocities: [0, 0], velocity: 0, _active: false })
-    this.fireGestureHandler()
+
+    sync.update(() => this.fireGestureHandler())
   }
 
   hoverTransform = () => {
