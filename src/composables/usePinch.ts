@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref } from 'vue-demi'
 import { PinchRecognizer } from '../recognizers/PinchRecognizer'
 import { RecognizersMap } from '../recognizers/Recognizer'
 import { EventTypes, Handler, UsePinchConfig } from '../types'
@@ -25,10 +25,5 @@ export function usePinch<K = EventTypes['pinch']>(
     buildPinchConfig.value = memoize(_buildPinchConfig, isEqual)
   }
 
-  const recognizers = useRecognizers<UsePinchConfig>(
-    { pinch: handler },
-    buildPinchConfig.value(config),
-  )
-
-  recognizers()
+  useRecognizers({ pinch: handler }, buildPinchConfig.value(config))
 }
