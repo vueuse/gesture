@@ -1,3 +1,4 @@
+import sync from 'framesync'
 import { addBindings } from '../Controller'
 import { getGenericEventData, getScrollEventValues } from '../utils/event'
 import { calculateAllGeometry } from '../utils/math'
@@ -37,7 +38,7 @@ export class ScrollRecognizer extends CoordinatesRecognizer<'scroll'> {
       })
     }
 
-    this.fireGestureHandler()
+    sync.update(() => this.fireGestureHandler())
   }
 
   onEnd = (): void => {
@@ -49,7 +50,8 @@ export class ScrollRecognizer extends CoordinatesRecognizer<'scroll'> {
       velocities: [0, 0],
       velocity: 0,
     })
-    this.fireGestureHandler()
+
+    sync.update(() => this.fireGestureHandler())
   }
 
   addBindings(bindings: any): void {
