@@ -251,10 +251,7 @@ export class DragRecognizer extends CoordinatesRecognizer<'drag'> {
 
     this.updateSharedState({ buttons: 0 })
     this.updateGestureState({ ...endState, tap, swipe })
-
-    sync.update(() =>
-      this.fireGestureHandler(this.config.filterTaps && tap === true),
-    )
+    this.fireGestureHandler(this.config.filterTaps && tap === true)
   }
 
   clean = (): void => {
