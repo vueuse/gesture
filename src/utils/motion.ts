@@ -1,25 +1,14 @@
 import { MotionInstance } from '@vueuse/motion'
-import { EventTypes, GestureKey, Handler, UseDragConfig } from '../types'
+import { EventTypes, GenericOptions, GestureKey, Handler } from '../types'
 
 export function resolveFromMotionInstance<
+  Config extends Partial<GenericOptions>,
   T extends GestureKey,
   K = EventTypes[T]
->(motionInstance: MotionInstance, config: UseDragConfig | {} = {}) {
-  const handler: Handler<T, K> = ({ movement, down }) => {
-    motionInstance.apply({
-      x: movement[0],
-      y: movement[1],
-    })
+>(motionInstance: MotionInstance, config: Config | {}) {
+  const handler: Handler<T, K> = () => {}
 
-    if (!down) {
-      motionInstance.apply({
-        x: 0,
-        y: 0,
-      })
-    }
-  }
-
-  const _config: UseDragConfig = {
+  const _config: Config | {} = {
     ...config,
     domTarget: motionInstance.target,
   }
