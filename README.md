@@ -1,6 +1,6 @@
 # 🕹 @vueuse/gesture
 
-🕹 **Vue Composables** making your app **interactive**
+**Vue Composables** making your app **interactive**
 
 - 🚀 **Plug** & **play**
 - 🕹 **Mouse** & **Touch** support
