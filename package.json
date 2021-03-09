@@ -32,6 +32,9 @@
     "test:types": "tsc --build tsconfig.json",
     "test:unit": "jest",
     "test": "yarn run test:types && yarn run test:unit",
+    "dev:docs": "vitepress dev docs",
+    "build:docs": "vitepress build docs",
+    "serve:docs": "vitepress serve docs",
     "dev:demo": "vite",
     "build:demo": "vite build",
     "serve:demo": "vite serve demo/dist"
@@ -78,6 +81,7 @@
     "typescript": "^4.2.3",
     "vite": "^2.0.5",
     "vite-plugin-windicss": "^0.6.10",
+    "vitepress": "^0.12.2",
     "vue": "^3.0.5",
     "yorkie": "^2.0.0"
   },
