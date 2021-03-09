@@ -1,0 +1,13 @@
+:root {
+  --c-brand: #7344be;
+  --c-brand-light: #b164e7;
+  --bg-colored-light: #a98aff;
+}
+
+body,
+html,
+#app,
+.theme {
+  min-height: 100%;
+  height: 100%;
+}

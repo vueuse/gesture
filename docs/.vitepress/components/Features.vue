@@ -1,0 +1,191 @@
+<template>
+  <ClientOnly>
+    <div class="home-features">
+      <div class="wrapper">
+        <div class="container">
+          <div class="features">
+            <section
+              v-for="(feature, index) in features"
+              :key="index"
+              :ref="`feature_${index}`"
+              class="feature"
+            >
+              <h2 class="title" v-if="feature.title">
+                <span role="img">{{ feature.icon }}</span>
+                {{ feature.title }}
+              </h2>
+              <p
+                class="details"
+                v-if="feature.details"
+                v-html="feature.details"
+              />
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ClientOnly>
+</template>
+
+<script lang="ts">
+import { useMotion } from '@vueuse/motion'
+import { defineComponent, ref } from 'vue'
+
+export default defineComponent({
+  setup() {
+    const features = [
+      {
+        icon: '🕹',
+        title: 'Gestures made simple',
+        details:
+          'Implement <b>complex</b> UI interactions <b>without</b> the <b>pain</b>.',
+      },
+      {
+        icon: '📱',
+        title: 'Compatible',
+        details:
+          '<b>Touch</b> and <b>pointer</b> events supported. <b>Ready</b> for your next <b>PWA</b>.',
+      },
+      {
+        icon: '💚',
+        title: 'Plug and Play',
+        details:
+          'Compatible with <b>Vue 2</b>, <b>3</b> and <b>Nuxt</b>. Plays well with <a href="https://motion.vueuse.org"><b>@vueuse/motion</b></a>.',
+      },
+    ]
+
+    const feature_0 = ref()
+    const feature_1 = ref()
+    const feature_2 = ref()
+
+    useMotion(feature_0, {
+      initial: {
+        y: 200,
+        opacity: 0,
+      },
+      enter: {
+        y: 0,
+        opacity: 1,
+      },
+    })
+
+    useMotion(feature_1, {
+      initial: {
+        y: 200,
+        opacity: 0,
+      },
+      enter: {
+        y: 0,
+        opacity: 1,
+        transition: {
+          delay: 100,
+        },
+      },
+    })
+
+    useMotion(feature_2, {
+      initial: {
+        y: 200,
+        opacity: 0,
+      },
+      enter: {
+        y: 0,
+        opacity: 1,
+        transition: {
+          delay: 200,
+        },
+      },
+    })
+
+    return {
+      features,
+      feature_0,
+      feature_1,
+      feature_2,
+    }
+  },
+})
+</script>
+
+<style scoped>
+.home-features {
+  position: relative;
+  margin: 0 auto;
+  padding: 2.5rem 0 2.5rem;
+  max-width: 960px;
+}
+.home-hero + .home-features {
+  padding-top: 0;
+}
+
+.wrapper {
+  padding: 0 1.5rem;
+}
+
+.home-hero + .home-features .wrapper {
+  border-top: 1px solid var(--c-divider);
+  padding-top: 2.5rem;
+}
+@media (min-width: 420px) {
+  .home-hero + .home-features .wrapper {
+    padding-top: 3.25rem;
+  }
+}
+@media (min-width: 720px) {
+  .wrapper {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+.container {
+  margin: 0 auto;
+  max-width: 392px;
+}
+@media (min-width: 720px) {
+  .container {
+    max-width: 960px;
+  }
+}
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -20px -24px;
+}
+.feature {
+  flex-shrink: 0;
+  padding: 20px 24px;
+  width: 100%;
+}
+@media (min-width: 720px) {
+  .feature {
+    width: calc(100% / 3);
+  }
+}
+.title {
+  margin: 0;
+  border-bottom: 0;
+  line-height: 1.4;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+@media (min-width: 420px) {
+  .title {
+    font-size: 1.4rem;
+  }
+}
+.details {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: var(--c-text-light);
+}
+.title + .details {
+  padding-top: 0.25rem;
+}
+</style>
+
+<style lang="postcss">
+footer .container {
+  border: 0 !important;
+}
+</style>
