@@ -10,7 +10,7 @@
 
 [🌍 **Documentation**](https://gesture.vueuse.org)
 
-[👀 **Demos**](https://vueuse-motion-demo.netlify.app)
+[👀 **Demos**](https://vueuse-gesture-demo.netlify.app)
 
 This **package** is **currently** under **active** development.
 
