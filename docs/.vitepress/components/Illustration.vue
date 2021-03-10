@@ -376,9 +376,13 @@ import { useMotion } from '@vueuse/motion'
 import type { Variant } from '@vueuse/motion'
 import { clamp, progress } from 'popmotion'
 import { useMove, useDrag } from '@vueuse/gesture'
-import { ref, inject } from 'vue'
+import { ref, onMounted } from 'vue'
 
-const main = inject('main')
+const main = ref()
+
+onMounted(() => {
+  main.value = document.querySelector('main')
+})
 
 const hat = ref()
 const head = ref()
