@@ -9,7 +9,6 @@
       viewBox="0 0 600 550"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      ref="illustration"
     >
       <mask
         id="mask0"
@@ -380,10 +379,6 @@ import { ref, onMounted } from 'vue'
 
 const main = ref()
 
-onMounted(() => {
-  main.value = document.querySelector('main')
-})
-
 const hat = ref()
 const head = ref()
 const arms = ref()
@@ -449,4 +444,8 @@ useDrag(
     domTarget: main,
   },
 )
+
+onMounted(() => {
+  main.value = document.querySelector('main')
+})
 </script>
