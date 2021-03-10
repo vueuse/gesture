@@ -1211,10 +1211,10 @@
     "@vueuse/shared" "4.3.4"
     vue-demi latest
 
-"@vueuse/motion@^1.2.8":
-  version "1.2.8"
-  resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-1.2.8.tgz#02d4ae9d15a710ba28a85055f2444a027193493f"
-  integrity sha512-fMKqRHrxMDMn8/rKqesUSRxTLFfZaGP5QPdFnGvhJFjviAZtYJxvCVo2so1tEEic5ppBRl5mFe259TM5k9I02w==
+"@vueuse/motion@^1.2.10":
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-1.2.10.tgz#6022b396c35b18ab44ef11a009ff27f38ec66045"
+  integrity sha512-LljBUfyraphAtXgvouSb+Tx2DPVNznbptrjxu+YNs8Z3cbahaMlr+Gnz7H6OyHPZg/Hb9lfFcrqm9u6zI5sZ5w==
   dependencies:
     "@vueuse/core" "^4.3.0"
     popmotion "^9.2.1"
@@ -1227,16 +1227,16 @@
   dependencies:
     vue-demi latest
 
-"@windicss/plugin-utils@0.6.11":
-  version "0.6.11"
-  resolved "https://registry.yarnpkg.com/@windicss/plugin-utils/-/plugin-utils-0.6.11.tgz#9d2a2f5ba3170700ad4b223435b8796cff934167"
-  integrity sha512-UBPe1yb4ZzGjISjbHV+e9/sj3+bvK2Bb+Mcn18qSW4mUfPnTY+tXBV7yvoaYILgZat9BOppHrRk9dwrI2DJD3w==
+"@windicss/plugin-utils@0.7.2":
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/@windicss/plugin-utils/-/plugin-utils-0.7.2.tgz#c43c89a2f51110eb6f49da565dc235fb2af30269"
+  integrity sha512-4znRERKhhStIOFy1/eB0rJXnXs+NyumBREjh0GZVMoHVmUB9up08tNUpbbq3tlJC96t27VsD4vdfv00T+It/IA==
   dependencies:
-    esbuild "^0.8.56"
+    esbuild "^0.8.57"
     esbuild-register "^2.2.0"
     fast-glob "^3.2.5"
     micromatch "^4.0.2"
-    windicss "^2.2.6"
+    windicss "^2.3.0"
 
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.5"
@@ -2196,7 +2196,7 @@ esbuild-register@^2.2.0:
   dependencies:
     jsonc-parser "^3.0.0"
 
-esbuild@^0.8.52, esbuild@^0.8.56:
+esbuild@^0.8.52, esbuild@^0.8.57:
   version "0.8.57"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.8.57.tgz#a42d02bc2b57c70bcd0ef897fe244766bb6dd926"
   integrity sha512-j02SFrUwFTRUqiY0Kjplwjm1psuzO1d6AjaXKuOR9hrY0HuPsT6sV42B6myW34h1q4CRy+Y3g4RU/cGJeI/nNA==
@@ -4646,10 +4646,17 @@ rollup-plugin-typescript2@^0.30.0:
     resolve "1.20.0"
     tslib "2.1.0"
 
-rollup@^2.38.5, rollup@^2.40.0:
+rollup@^2.38.5:
   version "2.40.0"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.40.0.tgz#efc218eaede7ab590954df50f96195188999c304"
   integrity sha512-WiOGAPbXoHu+TOz6hyYUxIksOwsY/21TRWoO593jgYt8mvYafYqQl+axaA8y1z2HFazNUUrsMSjahV2A6/2R9A==
+  optionalDependencies:
+    fsevents "~2.3.1"
+
+rollup@^2.41.0:
+  version "2.41.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.41.0.tgz#b2a398bbabbf227738dedaef099e494aed468982"
+  integrity sha512-Gk76XHTggulWPH95q8V62bw6uqDH6UGvbD6LOa3QUyhuMF3eOuaeDHR7SLm1T9faitkpNrqzUAVYx47klcMnlA==
   optionalDependencies:
     fsevents "~2.3.1"
 
@@ -5412,13 +5419,13 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vite-plugin-windicss@^0.6.10:
-  version "0.6.11"
-  resolved "https://registry.yarnpkg.com/vite-plugin-windicss/-/vite-plugin-windicss-0.6.11.tgz#62156e30d9ae1dd9d0a1664686c263ef36092f27"
-  integrity sha512-cFHyEVyCHGZ5Bu7L3EmiMKVsYtsI23+YBEd/bggEbdhdbv93bBk0M3j8ZVwZxwvKgJhLVG9Fthl3jAE+FVl0EA==
+vite-plugin-windicss@^0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/vite-plugin-windicss/-/vite-plugin-windicss-0.7.2.tgz#1647ee3765edb0f993b81206f35310a63b25c1f9"
+  integrity sha512-U6N8ljy7meqLkq8aENb3VXKr93Vzp1pU5zwhJr7HmGi+42Wv4i8r7+7BW6WRS4Ght4SAMzFuzIGq9RLPzoZ2Jg==
   dependencies:
-    "@windicss/plugin-utils" "0.6.11"
-    windicss "^2.2.6"
+    "@windicss/plugin-utils" "0.7.2"
+    windicss "^2.3.0"
 
 vite@^2.0.0-beta.70, vite@^2.0.5:
   version "2.0.5"
@@ -5577,10 +5584,10 @@ which@^2.0.1, which@^2.0.2:
   dependencies:
     isexe "^2.0.0"
 
-windicss@^2.2.6:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/windicss/-/windicss-2.3.0.tgz#76f10017169df195d95042b7101d2e2586e8ebd1"
-  integrity sha512-OR/ULZmcVhtEJDIFnkz4S4v4efpZ8DuvDtzBwXNgbtiPQIxN0Zhpo59q0rfF0i3tfwjKw2KCQXNxL5E98bMuVA==
+windicss@^2.3.0:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/windicss/-/windicss-2.3.1.tgz#3f82d6869bfb130d17bb02ea8bac8be61a1350c1"
+  integrity sha512-srYre86Qlwfb3pRqslFOEq9U9H+zrT6DIuV4DkTj8+JO1+yy8CrksDYqTUXr2985k+ORF0mj5YJMVjoKCuCQTg==
 
 word-wrap@~1.2.3:
   version "1.2.3"
