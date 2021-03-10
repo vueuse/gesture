@@ -391,9 +391,34 @@ const illustration = ref()
 
 const currentDirection = ref('left')
 
-const instances = [hat, head, arms, chest, body, legs].map((ref) =>
-  useMotion(ref),
-)
+const instances = [hat, head, arms, chest, body, legs].map((ref, index) => {
+  const instance = useMotion(ref, {
+    initial: {
+      y: 100,
+      opacity: 0,
+    },
+    enter: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        onComplete: () => {
+          instance.variant.value = 'levitate'
+        },
+      },
+    },
+    levitate: {
+      y: 15,
+      transition: {
+        duration: 1500,
+        repeat: Infinity,
+        ease: 'easeInOut',
+        repeatType: 'mirror',
+      },
+    },
+  })
+
+  return instance
+})
 
 const instancesApply = (variant: Variant) => {
   instances.forEach((instance, index) => {
@@ -403,18 +428,19 @@ const instancesApply = (variant: Variant) => {
 
 useDrag(
   ({ movement: [x, y], dragging }) => {
-    const scale = 1 - progress(0, 300, Math.abs(x))
-    instancesApply({
-      x: clamp(-300, 300, x),
-      opacity: scale,
-    })
-
     if (!dragging) {
       instancesApply({
         x: 0,
         opacity: 1,
       })
+
+      return
     }
+
+    const scale = 1 - progress(0, 300, Math.abs(x))
+    instancesApply({
+      x: clamp(-300, 300, x),
+    })
   },
   {
     domTarget: main,
