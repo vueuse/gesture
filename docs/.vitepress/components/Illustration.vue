@@ -401,6 +401,10 @@ const instances = [hat, head, arms, chest, body, legs].map((ref, index) => {
       y: 0,
       opacity: 1,
       transition: {
+        type: 'spring',
+        stiffness: 320,
+        damping: 20,
+        delay: 50 * index,
         onComplete: () => {
           instance.variant.value = 'levitate'
         },
