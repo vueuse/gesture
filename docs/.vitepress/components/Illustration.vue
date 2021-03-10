@@ -387,10 +387,6 @@ const chest = ref()
 const body = ref()
 const legs = ref()
 
-const illustration = ref()
-
-const currentDirection = ref('left')
-
 const instances = [hat, head, arms, chest, body, legs].map((ref, index) => {
   const instance = useMotion(ref, {
     initial: {
@@ -441,7 +437,6 @@ useDrag(
       return
     }
 
-    const scale = 1 - progress(0, 300, Math.abs(x))
     instancesApply({
       x: clamp(-300, 300, x),
     })
