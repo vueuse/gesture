@@ -156,41 +156,34 @@
 
 <script setup lang="ts">
 import { useDrag } from '@vueuse/gesture'
-import { useMotion } from '@vueuse/motion'
+import { useSpring } from '@vueuse/motion'
 import { ref } from 'vue'
 
 const joystick = ref<HTMLElement>()
 
-const instance = useMotion(joystick, {
-  initial: {
-    opacity: 0,
-    y: 200,
-  },
-  enter: {
-    y: 0,
-    opacity: 1,
-    scale: 1,
-  },
+const { set } = useSpring(joystick, {
+  damping: 50,
+  stiffness: 1000,
 })
 
 useDrag(
-  ({ movement: [x, y], dragging, event }) => {
+  ({ movement: [x, y], dragging }) => {
     if (!dragging) {
-      instance.apply({ x: 0, y: 0 })
+      set({
+        x: 0,
+        y: 0,
+      })
+
       return
     }
 
-    if (event.pointerType === 'touch') {
-      instance.set({ x, y })
-    } else {
-      instance.apply({
-        x,
-        y,
-      })
-    }
+    set({
+      x,
+      y,
+    })
   },
   {
-    domTarget: instance.target,
+    domTarget: joystick,
   },
 )
 </script>
