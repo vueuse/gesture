@@ -1,17 +1,21 @@
-import { MotionTarget } from '@vueuse/motion'
 import { HTMLAttributes, Ref } from 'vue-demi'
 import type Controller from '../Controller'
 import type Recognizer from '../recognizers/Recognizer'
+
+export type GestureTarget = HTMLElement | SVGElement | null | undefined
+
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
+
 export type AtLeastOneOf<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
   U[keyof U]
 
 export type Vector2 = [number, number]
+
 export type Fn = any
 
 export interface GenericOptions {
-  domTarget: Ref<MotionTarget>
-  window?: Ref<MotionTarget>
+  domTarget: Ref<GestureTarget>
+  window?: Ref<GestureTarget>
   eventOptions?: { capture?: boolean; passive?: boolean }
   enabled?: boolean
   transform?: (v: Vector2) => Vector2
@@ -77,8 +81,8 @@ export type UseGestureConfig = GenericOptions & {
 }
 
 export interface InternalGenericOptions {
-  domTarget: Ref<MotionTarget>
-  window?: Ref<MotionTarget>
+  domTarget: Ref<GestureTarget>
+  window?: Ref<GestureTarget>
   eventOptions: { capture?: boolean; passive?: boolean }
   enabled: boolean
   transform?: (v: Vector2) => Vector2
@@ -243,7 +247,7 @@ export interface CommonGestureState {
   _initial: Vector2
   _bounds: [Vector2, Vector2]
   _lastEventType?: string
-  _dragTarget?: MotionTarget | null
+  _dragTarget?: GestureTarget | null
   _dragPointerId?: number | null
   _dragStarted: boolean
   _dragPreventScroll: boolean
@@ -379,5 +383,5 @@ export type Handlers<T extends AnyGestureEventTypes = EventTypes> = Partial<
 >
 
 export type HookReturnType<
-  T extends { domTarget: Ref<MotionTarget> }
+  T extends { domTarget: Ref<GestureTarget> }
 > = T['domTarget']
