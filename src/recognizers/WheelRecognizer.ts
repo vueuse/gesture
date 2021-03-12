@@ -1,4 +1,3 @@
-import sync from 'framesync'
 import { addBindings } from '../Controller'
 import { getGenericEventData, getWheelEventValues } from '../utils/event'
 import { addV, calculateAllGeometry } from '../utils/math'
@@ -40,7 +39,7 @@ export class WheelRecognizer extends CoordinatesRecognizer<'wheel'> {
       })
     }
 
-    sync.update(() => this.fireGestureHandler())
+    this.fireGestureHandler()
   }
 
   onEnd = (): void => {
@@ -49,7 +48,7 @@ export class WheelRecognizer extends CoordinatesRecognizer<'wheel'> {
     const movement = this.getMovement(this.state.values)
     this.updateGestureState(movement)
     this.updateGestureState({ _active: false, velocities: [0, 0], velocity: 0 })
-    sync.update(() => this.fireGestureHandler())
+    this.fireGestureHandler()
   }
 
   addBindings(bindings: any): void {

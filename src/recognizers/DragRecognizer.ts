@@ -1,5 +1,4 @@
 import { MotionTarget } from '@vueuse/motion'
-import sync from 'framesync'
 import { nextTick } from 'vue-demi'
 import {
   addBindings,
@@ -147,7 +146,7 @@ export class DragRecognizer extends CoordinatesRecognizer<'drag'> {
     })
     this.clearTimeout()
 
-    sync.update(() => this.fireGestureHandler())
+    this.fireGestureHandler()
   }
 
   onDragChange = (event: PointerEvent): void => {
@@ -211,7 +210,7 @@ export class DragRecognizer extends CoordinatesRecognizer<'drag'> {
 
     this.updateGestureState({ ...genericPayload, ...kinematics, _dragIsTap })
 
-    sync.update(() => this.fireGestureHandler())
+    this.fireGestureHandler()
   }
 
   onDragEnd = (event: PointerEvent): void => {

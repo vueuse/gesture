@@ -1,4 +1,3 @@
-import sync from 'framesync'
 import { addBindings, addEventIds, removeEventIds } from '../Controller'
 import { Vector2, WebKitGestureEvent } from '../types'
 import {
@@ -52,7 +51,7 @@ export class PinchRecognizer extends DistanceAngleRecognizer<'pinch'> {
     })
 
     this.updateGestureState(this.getMovement(values))
-    sync.update(() => this.fireGestureHandler())
+    this.fireGestureHandler()
   }
 
   onPinchChange = (event: TouchEvent): void => {
@@ -81,7 +80,7 @@ export class PinchRecognizer extends DistanceAngleRecognizer<'pinch'> {
         origin,
       })
 
-      sync.update(() => this.fireGestureHandler())
+      this.fireGestureHandler()
     } catch (e) {
       this.onPinchEnd(event)
     }
@@ -102,13 +101,13 @@ export class PinchRecognizer extends DistanceAngleRecognizer<'pinch'> {
       ...this.getMovement(this.state.values),
       _active: false,
     })
-    sync.update(() => this.fireGestureHandler())
+    this.fireGestureHandler()
   }
 
   onCancel = (): void => {
     if (this.state.canceled) return
     this.updateGestureState({ _active: false, canceled: true })
-    sync.update(() => this.fireGestureHandler())
+    this.fireGestureHandler()
   }
   /**
    * PINCH WITH WEBKIT GESTURES
@@ -129,7 +128,7 @@ export class PinchRecognizer extends DistanceAngleRecognizer<'pinch'> {
     })
 
     this.updateGestureState(this.getMovement(values))
-    sync.update(() => this.fireGestureHandler())
+    this.fireGestureHandler()
   }
 
   onGestureChange = (event: WebKitGestureEvent): void => {
@@ -158,7 +157,7 @@ export class PinchRecognizer extends DistanceAngleRecognizer<'pinch'> {
       origin: [event.clientX, event.clientY] as Vector2, // only used on dekstop
     })
 
-    sync.update(() => this.fireGestureHandler())
+    this.fireGestureHandler()
   }
 
   onGestureEnd = (event: WebKitGestureEvent): void => {
@@ -171,7 +170,7 @@ export class PinchRecognizer extends DistanceAngleRecognizer<'pinch'> {
       _active: false,
       origin: [event.clientX, event.clientY] as Vector2, // only used on dekstop
     })
-    sync.update(() => this.fireGestureHandler())
+    this.fireGestureHandler()
   }
 
   /**
@@ -228,7 +227,7 @@ export class PinchRecognizer extends DistanceAngleRecognizer<'pinch'> {
     })
 
     this.updateGestureState(this.getMovement(values))
-    sync.update(() => this.fireGestureHandler())
+    this.fireGestureHandler()
   }
 
   onWheelChange = (event: WheelEvent): void => {
@@ -244,7 +243,7 @@ export class PinchRecognizer extends DistanceAngleRecognizer<'pinch'> {
       delta,
     })
 
-    sync.update(() => this.fireGestureHandler())
+    this.fireGestureHandler()
   }
 
   onWheelEnd = (): void => {
@@ -252,7 +251,7 @@ export class PinchRecognizer extends DistanceAngleRecognizer<'pinch'> {
     if (!this.state._active) return
     this.state._active = false
     this.updateGestureState(this.getMovement(this.state.values))
-    sync.update(() => this.fireGestureHandler())
+    this.fireGestureHandler()
   }
 
   addBindings(bindings: any): void {
