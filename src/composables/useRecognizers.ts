@@ -1,5 +1,4 @@
-import { tryOnMounted } from '@vueuse/shared'
-import { watch } from 'vue-demi'
+import { getCurrentInstance, onUnmounted, watch } from 'vue-demi'
 import Controller from '../Controller'
 import { RecognizersMap } from '../recognizers/Recognizer'
 import {
@@ -34,7 +33,7 @@ export default function useRecognizers(
   })
 
   // Unbind when host component unmounts
-  tryOnMounted(controller.clean)
+  if (getCurrentInstance()) onUnmounted(controller.clean)
 }
 
 function resolveClasses(internalHandlers: Partial<InternalHandlers>) {

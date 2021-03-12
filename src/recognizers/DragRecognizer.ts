@@ -1,4 +1,3 @@
-import { MotionTarget } from '@vueuse/motion'
 import { nextTick } from 'vue-demi'
 import {
   addBindings,
@@ -7,6 +6,7 @@ import {
   removeEventIds,
   updateWindowListeners,
 } from '../Controller'
+import { GestureTarget } from '../types'
 import { getGenericEventData, getPointerEventValues } from '../utils/event'
 import { addV, calculateDistance, sign } from '../utils/math'
 import CoordinatesRecognizer from './CoordinatesRecognizer'
@@ -34,8 +34,9 @@ export class DragRecognizer extends CoordinatesRecognizer<'drag'> {
       // @ts-expect-error
       target.setPointerCapture(pointerId)
     }
+
     this.updateGestureState({
-      _dragTarget: target as MotionTarget,
+      _dragTarget: target as GestureTarget,
       _dragPointerId: pointerId,
     })
   }

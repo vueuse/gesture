@@ -1,8 +1,8 @@
-import { MotionTarget } from '@vueuse/motion'
 import {
   EventHandlers,
   EventHandlersKey,
   Fn,
+  GestureTarget,
   InternalConfig,
   InternalHandlers,
   RecognizerClass,
@@ -191,7 +191,7 @@ export function addBindings(bindings: any, name: string, fn: Fn): void {
 }
 
 function addListeners(
-  el: MotionTarget,
+  el: GestureTarget,
   listeners: Array<[string, Fn]> = [],
   options = {},
 ) {
@@ -203,7 +203,7 @@ function addListeners(
 }
 
 function removeListeners(
-  el: MotionTarget,
+  el: GestureTarget,
   listeners: Array<[string, Fn]> = [],
   options = {},
 ) {
