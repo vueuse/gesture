@@ -1211,10 +1211,10 @@
     "@vueuse/shared" "4.3.6"
     vue-demi latest
 
-"@vueuse/motion@^1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-1.3.2.tgz#5cb7d6a4b28c0bddf9fcaa3d9b90755f871d9c26"
-  integrity sha512-y5vz5RRFCK3WO8sEQzS3W5CbBZPMq0bCDtMrdFqEPjmflj2wVQf82cEBV4qecLTrs/rQ2VGSS55ChuSHCEtL0A==
+"@vueuse/motion@^1.3.3":
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-1.3.3.tgz#19ab4fcf3618ff42446b8138a3da87a6c9242d18"
+  integrity sha512-fvlDwzV8ycui7LUNKH0ic6HGI2X2vD3lMFmv3O1ANuJVSK25VAS5h+FgyeRsO4I31NG894GW2lxNCpGwO07gjw==
   dependencies:
     "@vueuse/core" "^4.3.6"
     popmotion "^9.3.1"
