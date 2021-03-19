@@ -1,1 +1,1 @@
-I'm currently writing the docs 👀
+# Getting started
