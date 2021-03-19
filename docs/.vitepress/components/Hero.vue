@@ -132,8 +132,8 @@ useMotion(sources, {
 }
 
 .actions {
-  margin-top: 8rem;
-  margin-bottom: 8rem;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,7 +204,7 @@ useMotion(sources, {
 
 .illustration {
   left: 0;
-  top: 0;
+  top: 2rem;
   width: 100%;
   position: absolute;
   z-index: -1;

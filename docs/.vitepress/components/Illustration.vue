@@ -9,6 +9,7 @@
       viewBox="0 0 600 550"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      ref="illustration"
     >
       <mask
         id="mask0"
@@ -371,13 +372,15 @@
 </template>
 
 <script setup lang="ts">
-import { useMotion } from '@vueuse/motion'
-import type { Variant } from '@vueuse/motion'
+import { inject } from 'vue'
+import { useMotion, useMotionProperties, useSpring } from '@vueuse/motion'
 import { clamp, progress } from 'popmotion'
-import { useMove, useDrag } from '@vueuse/gesture'
+import { useGesture } from '@vueuse/gesture'
 import { ref, onMounted } from 'vue'
 
-const main = ref()
+const main = inject('main')
+
+const illustration = ref()
 
 const hat = ref()
 const head = ref()
@@ -385,6 +388,25 @@ const arms = ref()
 const chest = ref()
 const body = ref()
 const legs = ref()
+
+const { motionProperties } = useMotionProperties(illustration, {
+  x: 0,
+  y: 0,
+})
+
+const { set } = useSpring(motionProperties)
+
+useGesture(
+  {
+    onDrag: ({ movement: [x, y] }) => {
+      set({ x, y })
+    },
+    onDragEnd: () => set({ x: 0, y: 0 }),
+  },
+  {
+    domTarget: main,
+  },
+)
 
 const instances = [hat, head, arms, chest, body, legs].map((ref, index) => {
   const instance = useMotion(ref, {
@@ -417,35 +439,5 @@ const instances = [hat, head, arms, chest, body, legs].map((ref, index) => {
   })
 
   return instance
-})
-
-const instancesApply = (variant: Variant) => {
-  instances.forEach((instance, index) => {
-    instance.apply(variant)
-  })
-}
-
-useDrag(
-  ({ movement: [x, y], dragging }) => {
-    if (!dragging) {
-      instancesApply({
-        x: 0,
-        opacity: 1,
-      })
-
-      return
-    }
-
-    instancesApply({
-      x: clamp(-300, 300, x),
-    })
-  },
-  {
-    domTarget: main,
-  },
-)
-
-onMounted(() => {
-  main.value = document.querySelector('main')
 })
 </script>
