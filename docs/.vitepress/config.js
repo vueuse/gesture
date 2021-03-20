@@ -64,31 +64,31 @@ module.exports = {
         children: [
           {
             text: 'Drag',
-            link: '/presets',
+            link: '/use-drag',
           },
           {
             text: 'Move',
-            link: '/directive-usage',
+            link: '/use-move',
           },
           {
             text: 'Hover',
-            link: '/composable-usage',
+            link: '/use-hover',
           },
           {
             text: 'Scroll',
-            link: '/motion-properties',
+            link: '/use-scroll',
           },
           {
             text: 'Wheel',
-            link: '/transition-properties',
+            link: '/use-wheel',
           },
           {
             text: 'Pinch',
-            link: '/variants',
+            link: '/use-pinch',
           },
           {
             text: 'Gestures',
-            link: '/motion-instance',
+            link: '/use-gesture',
           },
         ],
       },
