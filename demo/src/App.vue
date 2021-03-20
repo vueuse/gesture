@@ -7,7 +7,9 @@
     </div>
 
     <div class="flex items-center justify-center">
-      <Joystick />
+      <MultiGesture />
+
+      <!-- <Joystick />-->
     </div>
 
     <div class="flex flex-col items-center justify-center">
@@ -26,7 +28,8 @@
 </template>
 
 <script setup lang="ts">
-import Joystick from './components/Joystick.vue'
+// import Joystick from './components/Joystick.vue'
+import MultiGesture from './components/MultiGesture.vue'
 </script>
 
 <style lang="postcss" scoped>
