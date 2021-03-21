@@ -1,5 +1,5 @@
 <template>
-  <main ref="main" class="home" aria-labelledby="main-title">
+  <main class="home" aria-labelledby="main-title">
     <Hero />
     <slot name="hero" />
     <HomeFeatures />
@@ -17,10 +17,6 @@ import { ref, provide, onMounted } from 'vue'
 import Hero from './Hero.vue'
 import HomeFeatures from 'vitepress/dist/client/theme-default/components/HomeFeatures.vue'
 import HomeFooter from 'vitepress/dist/client/theme-default/components/HomeFooter.vue'
-
-const main = ref()
-
-provide('main', main)
 </script>
 
 <style scoped>
