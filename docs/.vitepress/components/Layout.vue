@@ -1,5 +1,5 @@
 <template>
-  <div class="theme" :class="pageClasses">
+  <div ref="main" class="theme" :class="pageClasses">
     <NavBar v-if="showNavbar" @toggle="toggleSidebar" />
 
     <SideBar :open="openSideBar">
@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, defineAsyncComponent } from 'vue'
+import { ref, computed, watch, defineAsyncComponent, provide } from 'vue'
 import { useRoute, useSiteData, useSiteDataByRoute } from 'vitepress'
 import type { DefaultTheme } from 'vitepress/dist/client/theme-default/config.js'
 
@@ -59,6 +59,10 @@ const siteRouteData = useSiteDataByRoute()
 const isCustomLayout = computed(() => !!route.data.frontmatter.customLayout)
 // home
 const enableHome = computed(() => !!route.data.frontmatter.home)
+
+// Inject main
+const main = ref()
+provide('main', main)
 
 // Navbar
 const showNavbar = computed(() => {
