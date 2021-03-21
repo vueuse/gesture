@@ -4,6 +4,7 @@ html {
 
 body {
   @apply flex items-center justify-center bg-gradient-to-b from-grey-400 to-grey-600 bg-cover bg-fixed overflow-hidden;
+  overscroll-behavior-x: none;
 }
 
 #app {
