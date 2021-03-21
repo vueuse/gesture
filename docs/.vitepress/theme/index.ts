@@ -3,8 +3,8 @@ import { MotionPlugin } from '@vueuse/motion'
 import DefaultTheme from 'vitepress/dist/client/theme-default'
 import Features from '../components/Features.vue'
 import Hero from '../components/Hero.vue'
+import Illustration from '../components/Illustration.vue'
 import Layout from '../components/Layout.vue'
-import Person from '../components/Person.vue'
 import './style.css'
 
 export default {
@@ -17,6 +17,6 @@ export default {
 
     app.component('Hero', Hero)
 
-    app.component('Person', Person)
+    app.component('Illustration', Illustration)
   },
 }
