@@ -145,4 +145,22 @@ const pageClasses = computed(() => {
     bottom: 8px;
   }
 }
+
+.demo-box {
+  margin-top: 1rem;
+  height: 320px;
+  width: 100%;
+  background-color: #f5f3ff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-element {
+  width: 6rem;
+  height: 6rem;
+  background-color: #8b5cf6;
+  border-radius: 16px;
+}
 </style>
