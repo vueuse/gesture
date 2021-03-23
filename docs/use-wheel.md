@@ -1,1 +1,3 @@
 # Wheel
+
+<WheelExample />

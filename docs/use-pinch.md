@@ -1,1 +1,3 @@
 # Pinch
+
+<PinchExample />
