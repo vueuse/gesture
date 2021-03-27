@@ -18,15 +18,13 @@ export default {
   ...DefaultTheme,
   Layout,
   enhanceApp({ app }) {
+    // Plugins
     app.use(MotionPlugin)
 
-    app.component('Features', Features)
-
-    app.component('Hero', Hero)
-
-    app.component('Illustration', Illustration)
-
     // Components
+    app.component('Features', Features)
+    app.component('Hero', Hero)
+    app.component('Illustration', Illustration)
     app.component('DragExample', DragExample)
     app.component('MoveExample', MoveExample)
     app.component('PinchExample', PinchExample)
