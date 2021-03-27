@@ -1266,6 +1266,30 @@
     vscode-languageserver-textdocument "^1.0.1"
     vscode-uri "^2.1.2"
 
+"@vueuse/core@^4.5.0":
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-4.6.2.tgz#73a07ddbb3d01c66ef7d79500190f25a7ca7afac"
+  integrity sha512-FNI3qYazSrh4HReffs41qUl9ptu3HGe6Jn5ttGcfg3WHuHqhPV8VdhSWEO4wCx+rm131ta4CMGN7TNN54pTODw==
+  dependencies:
+    "@vueuse/shared" "4.6.2"
+    vue-demi latest
+
+"@vueuse/motion@^1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-1.5.2.tgz#4a4c67ac48395874f0379edd12fdf56ca34e06d1"
+  integrity sha512-Eq5QM/jPxgxnf51T4N96az1Jr4Bugz+peIuojSUpW8AhQpDiG+McQr0r0Vmf8XseLXiacDHLSlAZ77mAOhY56g==
+  dependencies:
+    "@vueuse/core" "^4.5.0"
+    popmotion "^9.3.4"
+    vue-demi "0.7.4"
+
+"@vueuse/shared@4.6.2":
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-4.6.2.tgz#5237615d56cc872723b2352f8b2b420bbdb97533"
+  integrity sha512-niGuwfS9QjRhA44qopwczanH0u8TUgkgmUnTsOAz9a+iwGIxOK3ImpX1iCW7Dshqkz3YhPtmpycOrwF07s5jIQ==
+  dependencies:
+    vue-demi latest
+
 "@windicss/plugin-utils@0.10.2":
   version "0.10.2"
   resolved "https://registry.yarnpkg.com/@windicss/plugin-utils/-/plugin-utils-0.10.2.tgz#d4a79c41f02c1704b54510a2bd2deaa43c905a7d"
@@ -5566,7 +5590,7 @@ vscode-web-custom-data@^0.3.2:
   resolved "https://registry.yarnpkg.com/vscode-web-custom-data/-/vscode-web-custom-data-0.3.3.tgz#9e1f2388c718d6f190038a19d144834a436b876f"
   integrity sha512-orMjjj1r4efP5ocODYZm3orpANakRBsxPZPDoD5UIrFOPKDFtMJQLp6PIH1rb3AYVRD1iYXMhDQoC6tZ+DrigA==
 
-vue-demi@^0.7.4:
+vue-demi@0.7.4, vue-demi@^0.7.4, vue-demi@latest:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.7.4.tgz#4c6be525788e1f6b3fd5d4f5f9f2148cf6645979"
   integrity sha512-PT0qzI9Rp8R8eUAsTPXADC+KAZdrMufmbZqEMMqvaiesWyjCpgyuuvS5Su8cvBjK9RevLT/YfFiKWxc8YB9/8g==
