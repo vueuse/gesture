@@ -1,4 +1,4 @@
-import { getCurrentInstance, onUnmounted, watch } from 'vue-demi'
+import { getCurrentInstance, onMounted, onUnmounted } from 'vue-demi'
 import Controller from '../Controller'
 import { RecognizersMap } from '../recognizers/Recognizer'
 import {
@@ -27,13 +27,11 @@ export default function useRecognizers(
   controller!.handlers = handlers
   controller!.nativeRefs = nativeHandlers
 
-  // Bind once domTarget change and is defined
-  watch(config.domTarget, (newVal) => newVal && controller.bind(), {
-    immediate: true,
-  })
-
   // Unbind when host component unmounts
-  if (getCurrentInstance()) onUnmounted(controller.clean)
+  if (getCurrentInstance()) {
+    onMounted(controller.bind)
+    onUnmounted(controller.clean)
+  }
 }
 
 function resolveClasses(internalHandlers: Partial<InternalHandlers>) {
