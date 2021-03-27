@@ -2,16 +2,12 @@
   <div
     ref="container"
     id="card"
-    class="cursor-grab overflow-hidden relative bg-gray-200 w-30vw h-30vw"
+    class="cursor-grab overflow-hidden relative flex items-center justify-center bg-gray-100 w-64 h-64"
   >
-    <div ref="box" class="h-full m-0">
-      <div
-        v-for="(img, index) in data"
-        :key="index"
-        :style="`background-image: url(${img})`"
-        class="h-full bg-cover bg-center m-0"
-      />
-    </div>
+    <div
+      ref="box"
+      class="h-16 w-16 bg-blue-400 border-4 border-blue-600 rounded-lg"
+    />
   </div>
 </template>
 
@@ -20,7 +16,6 @@ import { ref } from '@vue/reactivity'
 import { useGesture } from '@vueuse/gesture'
 import { useMotionProperties, useSpring } from '@vueuse/motion'
 import type { PermissiveMotionProperties } from '@vueuse/motion'
-import data from '../data/MultiGesture'
 
 const calcX = (y, ly) => -(y - ly - window.innerHeight / 2) / 20
 const calcY = (x, lx) => (x - lx - window.innerWidth / 2) / 20
@@ -39,6 +34,7 @@ const { motionProperties } = useMotionProperties(container, {
 
 const { motionProperties: boxProperties } = useMotionProperties(box, {
   y: 0,
+  x: 0,
 })
 
 const { set } = useSpring(
@@ -51,10 +47,12 @@ const { set: boxSet } = useSpring(
 
 useGesture(
   {
-    onDrag: ({ offset: [x, y] }) =>
+    onDrag: ({ movement: [x, y] }) =>
       set({ x, y, rotateX: 0, rotateY: 0, scale: 1 }),
     onDragEnd: () =>
       set({
+        x: 0,
+        y: 0,
         scale: 1.2,
       }),
     onHover: ({ hovering }) =>
@@ -66,9 +64,18 @@ useGesture(
         rotateY: calcY(px, motionProperties.x),
         scale: 1.2,
       }),
-    onWheel: ({ offset: [, y] }) =>
+    onPinch: ({ offset: [d, a] }) => {
+      console.log(d, a)
+    },
+    onWheel: ({ movement: [x, y] }) =>
       boxSet({
         y,
+        x,
+      }),
+    onWheelEnd: () =>
+      boxSet({
+        y: 0,
+        x: 0,
       }),
   },
   {
@@ -78,6 +85,11 @@ useGesture(
 </script>
 
 <style lang="postcss">
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
 #card {
   transition: box-shadow 0.5s, opacity 0.5s;
   border: 10px solid white;
