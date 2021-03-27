@@ -10,18 +10,32 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useMove, useHover, subV } from '@vueuse/gesture'
+import { useHover } from '@vueuse/gesture'
 import { useMotionProperties, useSpring } from '@vueuse/motion'
 
 const demoBox = ref()
 const demoElement = ref()
 
 const { motionProperties } = useMotionProperties(demoElement, {
-  x: 0,
-  y: 0,
+  backgroundColor: 'blue',
 })
 
-const { set } = useSpring(motionProperties)
+const { set } = useSpring(motionProperties, {
+  damping: 30,
+  stiffness: 320,
+})
+
+useHover(
+  ({ hovering }) => {
+    if (hovering) set({ backgroundColor: 'red' })
+    else set({ backgroundColor: 'blue' })
+  },
+  { domTarget: demoElement },
+)
 </script>
 
-<style lang="postcss" scoped></style>
+<style lang="postcss" scoped>
+.demo-element {
+  background-color: blue;
+}
+</style>
