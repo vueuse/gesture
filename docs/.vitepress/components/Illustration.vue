@@ -374,7 +374,6 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 import { useMotion, useMotionProperties, useSpring } from '@vueuse/motion'
-import { clamp, progress } from 'popmotion'
 import { useGesture } from '@vueuse/gesture'
 import { ref, onMounted } from 'vue'
 
