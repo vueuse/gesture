@@ -9,37 +9,42 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useMove, useHover, subV } from '@vueuse/gesture'
+import { ref, onMounted } from 'vue'
+import { useMove, useHover } from '@vueuse/gesture'
 import { useMotionProperties, useSpring } from '@vueuse/motion'
 
 const demoBox = ref()
+let boxRect = {}
 const demoElement = ref()
 
 const { motionProperties } = useMotionProperties(demoElement, {
-  x: 0,
-  y: 0,
+  x: 1,
+  y: 1,
 })
 
-const { set } = useSpring(motionProperties)
+const { set } = useSpring(motionProperties, {
+  damping: 5,
+  stiffness: 400,
+})
 
 useMove(
-  ({ movement: [x, y], event, moving }) => {
-    if (!moving) {
-      set({
-        x: 0,
-        y: 0,
-      })
+  ({ event, moving, ...state }) => {
+    const x = event.pageX - boxRect.left - boxRect.width / 2
+    const y = event.pageY - boxRect.top - boxRect.height / 2
 
-      return
-    }
-
-    set({ x, y })
+    set({
+      x,
+      y,
+    })
   },
   {
     domTarget: demoBox,
   },
 )
+
+onMounted(() => {
+  boxRect = demoBox.value.getBoundingClientRect()
+})
 </script>
 
 <style lang="postcss" scoped>
