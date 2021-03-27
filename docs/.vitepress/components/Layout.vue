@@ -62,7 +62,9 @@ const enableHome = computed(() => !!route.data.frontmatter.home)
 
 // Inject main
 const main = ref()
+const interacting = ref(false)
 provide('main', main)
+provide('interacting', interacting)
 
 // Navbar
 const showNavbar = computed(() => {
@@ -111,8 +113,20 @@ const pageClasses = computed(() => {
       'no-navbar': !showNavbar.value,
       'sidebar-open': openSideBar.value,
       'no-sidebar': !showSidebar.value,
+      interacting: interacting.value,
     },
   ]
+})
+
+watch(interacting, (newVal) => {
+  const body = document.querySelector('body')
+
+  if (newVal) {
+    body.classList.add('interacting')
+    return
+  }
+
+  body.classList.remove('interacting')
 })
 </script>
 
@@ -162,5 +176,9 @@ const pageClasses = computed(() => {
   height: 6rem;
   background-color: #8b5cf6;
   border-radius: 16px;
+}
+
+.interacting {
+  overflow: hidden;
 }
 </style>
