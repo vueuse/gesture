@@ -28,7 +28,7 @@ export default function useRecognizers(
   controller!.nativeRefs = nativeHandlers
 
   // Unbind when host component unmounts
-  if (getCurrentInstance()) {
+  if (getCurrentInstance() && !config.manual) {
     onMounted(controller.bind)
     onUnmounted(controller.clean)
   }
