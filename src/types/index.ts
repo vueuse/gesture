@@ -1,6 +1,8 @@
-import { HTMLAttributes, Ref } from 'vue-demi'
+import { ComputedRef, HTMLAttributes, Ref } from 'vue-demi'
 import type Controller from '../Controller'
 import type Recognizer from '../recognizers/Recognizer'
+
+export type MaybeRef<T> = T | Ref<T> | ComputedRef<T>
 
 export type GestureTarget = HTMLElement | SVGElement | null | undefined
 
@@ -14,8 +16,8 @@ export type Vector2 = [number, number]
 export type Fn = any
 
 export interface GenericOptions {
-  domTarget: Ref<GestureTarget>
-  window?: Ref<GestureTarget>
+  domTarget: MaybeRef<GestureTarget>
+  window?: MaybeRef<GestureTarget>
   eventOptions?: { capture?: boolean; passive?: boolean }
   enabled?: boolean
   transform?: (v: Vector2) => Vector2
@@ -81,9 +83,9 @@ export type UseGestureConfig = GenericOptions & {
 }
 
 export interface InternalGenericOptions {
-  domTarget: Ref<GestureTarget>
+  domTarget: MaybeRef<GestureTarget>
   manual?: boolean
-  window?: Ref<GestureTarget>
+  window?: MaybeRef<GestureTarget>
   eventOptions: { capture?: boolean; passive?: boolean }
   enabled: boolean
   transform?: (v: Vector2) => Vector2
@@ -384,5 +386,5 @@ export type Handlers<T extends AnyGestureEventTypes = EventTypes> = Partial<
 >
 
 export type HookReturnType<
-  T extends { domTarget: Ref<GestureTarget> }
+  T extends { domTarget: MaybeRef<GestureTarget> }
 > = T['domTarget']
