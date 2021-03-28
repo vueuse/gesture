@@ -25,5 +25,5 @@ export function useWheel<K = EventTypes['wheel']>(
     buildWheelConfig.value = memoize(_buildWheelConfig, isEqual)
   }
 
-  useRecognizers({ wheel: handler }, buildWheelConfig.value(config))
+  return useRecognizers({ wheel: handler }, buildWheelConfig.value(config))
 }

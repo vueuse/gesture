@@ -84,7 +84,7 @@ export function useGesture<T extends AnyGestureEventTypes = EventTypes>(
     internalHandlers.pinch = includeStartEndHandlers(handlers, 'onPinch')
   if (actions.has('onHover')) internalHandlers.hover = handlers.onHover
 
-  useRecognizers(internalHandlers, mergedConfig, nativeHandlers)
+  return useRecognizers(internalHandlers, mergedConfig, nativeHandlers)
 }
 
 /**

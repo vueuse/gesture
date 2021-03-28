@@ -25,5 +25,5 @@ export function usePinch<K = EventTypes['pinch']>(
     buildPinchConfig.value = memoize(_buildPinchConfig, isEqual)
   }
 
-  useRecognizers({ pinch: handler }, buildPinchConfig.value(config))
+  return useRecognizers({ pinch: handler }, buildPinchConfig.value(config))
 }

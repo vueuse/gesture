@@ -25,5 +25,5 @@ export function useDrag<K = EventTypes['drag']>(
     buildDragConfig.value = memoize(_buildDragConfig, isEqual)
   }
 
-  useRecognizers({ drag: handler }, buildDragConfig.value(config))
+  return useRecognizers({ drag: handler }, buildDragConfig.value(config))
 }

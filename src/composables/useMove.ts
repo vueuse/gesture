@@ -25,5 +25,5 @@ export function useMove<K = EventTypes['move']>(
     buildMoveConfig.value = memoize(_buildMoveConfig, isEqual)
   }
 
-  useRecognizers({ move: handler }, buildMoveConfig.value(config))
+  return useRecognizers({ move: handler }, buildMoveConfig.value(config))
 }

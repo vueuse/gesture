@@ -25,5 +25,5 @@ export function useHover<K = EventTypes['hover']>(
     buildHoverConfig.value = memoize(_buildHoverConfig, isEqual)
   }
 
-  useRecognizers({ hover: handler }, buildHoverConfig.value(config))
+  return useRecognizers({ hover: handler }, buildHoverConfig.value(config))
 }
