@@ -81,6 +81,7 @@ export type UseGestureConfig = GenericOptions & {
 }
 
 export interface InternalGenericOptions {
+  immediate: boolean
   domTarget: Ref<GestureTarget>
   window?: Ref<GestureTarget>
   eventOptions: { capture?: boolean; passive?: boolean }
