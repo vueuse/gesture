@@ -32,6 +32,8 @@ export default function useRecognizers(
     onMounted(controller.bind)
     onUnmounted(controller.clean)
   }
+
+  return controller
 }
 
 function resolveClasses(internalHandlers: Partial<InternalHandlers>) {
