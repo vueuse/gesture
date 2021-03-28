@@ -1,82 +1,190 @@
-import { Directive, DirectiveBinding, VNode } from 'vue-demi'
+import { useDrag } from '../composables/useDrag'
+import { useHover } from '../composables/useHover'
+import { useMove } from '../composables/useMove'
+import { usePinch } from '../composables/usePinch'
+import { useScroll } from '../composables/useScroll'
+import { useWheel } from '../composables/useWheel'
+import { directive, DirectiveHook } from './directive'
 
-export type DirectiveHook = (
-  el: HTMLElement | SVGElement,
-  binding: DirectiveBinding,
-  node: VNode<
-    any,
-    HTMLElement | SVGElement,
-    {
-      [key: string]: any
-    }
-  >,
-) => void
-
-export const directive = (
-  register: DirectiveHook,
-  unregister: DirectiveHook,
-): Directive<HTMLElement | SVGElement> => {
-  return {
-    // Vue 3 Directive Hooks
-    created: register,
-    unmounted: unregister,
-    // Vue 2 Directive Hooks
-    // @ts-expect-error
-    bind: register,
-    unbind: unregister,
-  }
-}
+const errorMessage = (type: string) =>
+  `Your v-${type} directive must have a handler specified as a value`
 
 // v-drag
-export const dragDirective = () => {
-  const register: DirectiveHook = () => {}
+export const drag = () => {
+  const register: DirectiveHook = (el, binding, node) => {
+    if (!binding.value) {
+      throw new Error(errorMessage('drag'))
+    }
 
-  const unregister: DirectiveHook = () => {}
+    if (!el.gestures) {
+      el.gestures = {}
+    }
+
+    const controller = useDrag(binding.value, {
+      domTarget: el,
+      manual: true,
+    })
+
+    controller.bind()
+
+    el.gestures.drag = controller
+  }
+
+  const unregister: DirectiveHook = (el, binding, node) => {
+    if (!el.gestures || !el.gestures.drag) return
+
+    el.gestures.drag.clean()
+  }
 
   return directive(register, unregister)
 }
 
 // v-move
-export const moveDirective = () => {
-  const register: DirectiveHook = () => {}
+export const move = () => {
+  const register: DirectiveHook = (el, binding, node) => {
+    if (!binding.value) {
+      throw new Error(errorMessage('move'))
+    }
 
-  const unregister: DirectiveHook = () => {}
+    if (!el.gestures) {
+      el.gestures = {}
+    }
+
+    const controller = useMove(binding.value, {
+      domTarget: el,
+      manual: true,
+    })
+
+    controller.bind()
+
+    el.gestures.move = controller
+  }
+
+  const unregister: DirectiveHook = (el, binding, node) => {
+    if (!el.gestures || !el.gestures.move) return
+
+    el.gestures.move.clean()
+  }
 
   return directive(register, unregister)
 }
 
 // v-hover
-export const hoverDirective = () => {
-  const register: DirectiveHook = () => {}
+export const hover = () => {
+  const register: DirectiveHook = (el, binding, node) => {
+    if (!binding.value) {
+      throw new Error(errorMessage('hover'))
+    }
 
-  const unregister: DirectiveHook = () => {}
+    if (!el.gestures) {
+      el.gestures = {}
+    }
+
+    const controller = useHover(binding.value, {
+      domTarget: el,
+      manual: true,
+    })
+
+    controller.bind()
+
+    el.gestures.hover = controller
+  }
+
+  const unregister: DirectiveHook = (el, binding, node) => {
+    if (!el.gestures || !el.gestures.hover) return
+
+    el.gestures.hover.clean()
+  }
 
   return directive(register, unregister)
 }
 
 // v-pinch
-export const pinchDirective = () => {
-  const register: DirectiveHook = () => {}
+export const pinch = () => {
+  const register: DirectiveHook = (el, binding, node) => {
+    if (!binding.value) {
+      throw new Error(errorMessage('pinch'))
+    }
 
-  const unregister: DirectiveHook = () => {}
+    if (!el.gestures) {
+      el.gestures = {}
+    }
+
+    const controller = usePinch(binding.value, {
+      domTarget: el,
+      manual: true,
+    })
+
+    controller.bind()
+
+    el.gestures.pinch = controller
+  }
+
+  const unregister: DirectiveHook = (el, binding, node) => {
+    if (!el.gestures || !el.gestures.pinch) return
+
+    el.gestures.pinch.clean()
+  }
 
   return directive(register, unregister)
 }
 
 // v-wheel
-export const wheelDirective = () => {
-  const register: DirectiveHook = () => {}
+export const wheel = () => {
+  const register: DirectiveHook = (el, binding, node) => {
+    if (!binding.value) {
+      throw new Error(errorMessage('wheel'))
+    }
 
-  const unregister: DirectiveHook = () => {}
+    if (!el.gestures) {
+      el.gestures = {}
+    }
+
+    const controller = useWheel(binding.value, {
+      domTarget: el,
+      manual: true,
+    })
+
+    controller.bind()
+
+    el.gestures.wheel = controller
+  }
+
+  const unregister: DirectiveHook = (el, binding, node) => {
+    if (!el.gestures || !el.gestures.wheel) return
+
+    el.gestures.wheel.clean()
+  }
 
   return directive(register, unregister)
 }
 
 // v-scroll
-export const scrollDirective = () => {
-  const register: DirectiveHook = () => {}
+export const scroll = () => {
+  const register: DirectiveHook = (el, binding, node) => {
+    if (!binding.value) {
+      throw new Error(errorMessage('scroll'))
+    }
 
-  const unregister: DirectiveHook = () => {}
+    if (!el.gestures) {
+      el.gestures = {}
+    }
+
+    const controller = useScroll(binding.value, {
+      domTarget: el,
+      manual: true,
+    })
+
+    controller.bind()
+
+    el.gestures.drag = controller
+  }
+
+  const unregister: DirectiveHook = (el, binding, node) => {
+    if (!el.gestures || !el.gestures.drag) return
+
+    el.gestures.drag.clean()
+  }
 
   return directive(register, unregister)
 }
