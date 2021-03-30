@@ -1,16 +1,12 @@
 <template>
-  <div>
-    <div ref="demoBox" class="demo-box">
-      <div ref="demoElement" class="demo-element" />
-    </div>
-
-    <div class="demo-code"></div>
+  <div ref="demoBox" class="demo-box">
+    <div ref="demoElement" class="demo-element" />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useMove, useHover } from '@vueuse/gesture'
+import { useMove } from '@vueuse/gesture'
 import { useMotionProperties, useSpring } from '@vueuse/motion'
 
 const demoBox = ref()
