@@ -42,3 +42,9 @@ useDrag(
   },
 )
 </script>
+
+<style lang="postcss" scoped>
+.demo-element {
+  cursor: grab;
+}
+</style>
