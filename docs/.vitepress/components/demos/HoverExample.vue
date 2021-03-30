@@ -1,10 +1,6 @@
 <template>
-  <div>
-    <div ref="demoBox" class="demo-box">
-      <div ref="demoElement" class="demo-element" />
-    </div>
-
-    <div class="demo-code"></div>
+  <div ref="demoBox" class="demo-box">
+    <div ref="demoElement" class="demo-element" />
   </div>
 </template>
 
