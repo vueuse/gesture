@@ -19,10 +19,10 @@ let boxHeight = 0
 const demoElement = ref()
 
 const { motionProperties } = useMotionProperties(demoElement, {
-  backgroundColor: '#0000FF',
+  backgroundColor: '#7344be',
 })
 
-const mapper = interpolate([0, 50, 100], ['#0000FF', '#00FF00', '#FF0000'])
+const mapper = interpolate([0, 50, 100], ['#7344be', '#00FF00', '#b164e7'])
 
 const { set } = useSpring(motionProperties, {
   damping: 30,
@@ -42,8 +42,6 @@ useScroll(
 
 onMounted(() => {
   boxHeight = demoBox.value.scrollHeight - 320
-
-  console.log(boxHeight)
 })
 </script>
 
