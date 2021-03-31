@@ -2,38 +2,26 @@
 
 <ScrollExample />
 
-```javascript
-import { ref, onMounted } from 'vue'
-import { useScroll } from '@vueuse/gesture'
-import { useMotionProperties, useSpring } from '@vueuse/motion'
-import { interpolate } from 'popmotion'
+```vue
+<template>
+  <!-- Directive usage -->
+  <div ref="demo" v-scroll="scrollHandler" />
+</template>
 
-const demoBox = ref()
-let boxHeight = 0
+<script setup>
+const demo = ref()
 
-const { motionProperties } = useMotionProperties(demoElement, {
-  backgroundColor: '#7344be',
+// Find more about `set()` and `mapper()` on the "Integration" page
+
+const scrollHandler = ({ xy: [x, y], ...state }) => {
+  set({
+    backgroundColor: mapper((y / boxHeight) * 100),
+  })
+}
+
+// Composable usage
+useScroll(scrollHandler, {
+  domTarget: demoBox,
 })
-
-const mapper = interpolate([0, 50, 100], ['#7344be', '#00FF00', '#b164e7'])
-
-const { set } = useSpring(motionProperties, {
-  damping: 30,
-  stiffness: 320,
-})
-
-useScroll(
-  ({ xy: [x, y], ...state }) => {
-    set({
-      backgroundColor: mapper((y / boxHeight) * 100),
-    })
-  },
-  {
-    domTarget: demoBox,
-  },
-)
-
-onMounted(() => {
-  boxHeight = demoBox.value.scrollHeight - 320
-})
+</script>
 ```
