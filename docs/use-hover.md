@@ -2,28 +2,23 @@
 
 <HoverExample />
 
-```javascript
-import { ref } from 'vue'
-import { useHover } from '@vueuse/gesture'
-import { useMotionProperties, useSpring } from '@vueuse/motion'
+```vue
+<template>
+  <!-- Directive usage -->
+  <div ref="demo" v-hover="hoverHanlder" />
+</template>
 
-const demoElement = ref()
+<script setup>
+const demo = ref()
 
-const { motionProperties } = useMotionProperties(demoElement, {
-  scale: 1,
-  backgroundColor: '#b164e7',
-})
+// Find more about `set()` on the "Integration" page
 
-const { set } = useSpring(motionProperties, {
-  damping: 30,
-  stiffness: 320,
-})
+const hoverHandler = ({ hovering }) => {
+  if (hovering) set({ backgroundColor: '#7344be', scale: 1.5 })
+  else set({ backgroundColor: '#b164e7', scale: 1 })
+}
 
-useHover(
-  ({ hovering }) => {
-    if (hovering) set({ backgroundColor: '#7344be', scale: 1.5 })
-    else set({ backgroundColor: '#b164e7', scale: 1 })
-  },
-  { domTarget: demoElement },
-)
+// Composable usage
+useHover(hoverHandler, { domTarget: demo })
+</script>
 ```
