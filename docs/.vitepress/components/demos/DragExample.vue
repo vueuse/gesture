@@ -42,5 +42,6 @@ useDrag(
 <style lang="postcss" scoped>
 .demo-element {
   cursor: grab;
+  z-index: 9999;
 }
 </style>
