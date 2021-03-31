@@ -1,5 +1,7 @@
 # Drag
 
+**Drag** the box.
+
 <DragExample />
 
 ```vue

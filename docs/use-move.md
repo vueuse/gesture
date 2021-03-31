@@ -1,5 +1,7 @@
 # Move
 
+**Move** inside the box.
+
 <MoveExample />
 
 ```vue

@@ -1,5 +1,7 @@
 # Hover
 
+**Hover** the box.
+
 <HoverExample />
 
 ```vue

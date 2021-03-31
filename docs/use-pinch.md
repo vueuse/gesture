@@ -1,5 +1,9 @@
 # Pinch
 
+**Pinch** the box.
+
+Works best on **touch** devices, or using a laptop **trackpad**.
+
 <PinchExample />
 
 ```vue

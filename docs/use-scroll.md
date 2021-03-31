@@ -1,5 +1,7 @@
 # Scroll
 
+Scroll the box.
+
 <ScrollExample />
 
 ```vue

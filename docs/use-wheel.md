@@ -1,5 +1,9 @@
 # Wheel
 
+Use your mouse **wheel** or **trackpad**.
+
+Both **axis** and **velocity** are **supported**.
+
 <WheelExample />
 
 ```vue
