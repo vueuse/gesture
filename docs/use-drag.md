@@ -2,36 +2,33 @@
 
 <DragExample />
 
-```javascript
-import { ref } from 'vue'
-import { useDrag } from '@vueuse/gesture'
-import { useMotionProperties, useSpring } from '@vueuse/motion'
+```vue
+<template>
+  <!-- Directive usage -->
+  <div ref="demo" v-drag="dragHanlder" />
+</template>
 
-const demoElement = ref()
+<script setup>
+const demo = ref()
 
-const { motionProperties } = useMotionProperties(demoElement, {
-  cursor: 'grab',
-  x: 0,
-  y: 0,
+// Find more about `set()` on the "Integration" page
+
+const dragHandler = ({ movement: [x, y], dragging }) => {
+  if (!dragging) {
+    set({ x: 0, y: 0, cursor: 'grab' })
+    return
+  }
+
+  set({
+    cursor: 'grabbing',
+    x,
+    y,
+  })
+}
+
+// Composable usage
+useDrag(dragHandler, {
+  domTarget: demo,
 })
-
-const { set } = useSpring(motionProperties)
-
-useDrag(
-  ({ movement: [x, y], dragging }) => {
-    if (!dragging) {
-      set({ x: 0, y: 0, cursor: 'grab' })
-      return
-    }
-
-    set({
-      cursor: 'grabbing',
-      x,
-      y,
-    })
-  },
-  {
-    domTarget: demoElement,
-  },
-)
+</script>
 ```
