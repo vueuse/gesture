@@ -14,6 +14,14 @@ module.exports = {
     [
       'meta',
       {
+        name: 'viewport',
+        content:
+          'width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no',
+      },
+    ],
+    [
+      'meta',
+      {
         property: 'og:description',
         content: '🕹 Vue Composables making your app interactive',
       },
@@ -63,6 +71,14 @@ module.exports = {
         text: 'Features',
         children: [
           {
+            text: 'Gesture state',
+            link: '/gesture-state',
+          },
+          {
+            text: 'Gesture options',
+            link: '/gesture-options',
+          },
+          {
             text: 'Drag',
             link: '/use-drag',
           },
@@ -89,6 +105,10 @@ module.exports = {
           {
             text: 'Gestures',
             link: '/use-gesture',
+          },
+          {
+            text: 'Utilities',
+            link: '/utilities',
           },
         ],
       },
