@@ -2,40 +2,31 @@
 
 <MoveExample />
 
-```javascript
-import { ref, onMounted } from 'vue'
-import { useMove } from '@vueuse/gesture'
-import { useMotionProperties, useSpring } from '@vueuse/motion'
+```vue
+<template>
+  <!-- Directive usage -->
+  <div ref="demo" v-move="moveHandler" />
+</template>
 
-const demoBox = ref()
-let boxRect = {}
+<script setup>
+const demo = ref()
 
-const { motionProperties } = useMotionProperties(demoElement, {
-  x: 1,
-  y: 1,
+// Find more about `set()` on the "Integration" page
+
+const moveHandler = ({ event, moving, ...state }) => {
+  // boxRect is coming from the getBoundingClientRect() of the parent element.
+  const x = event.pageX - boxRect.left - boxRect.width / 2
+  const y = event.pageY - boxRect.top - boxRect.height / 2
+
+  set({
+    x,
+    y,
+  })
+}
+
+// Composable usage
+useMove(moveHandler, {
+  domTarget: demoBox,
 })
-
-const { set } = useSpring(motionProperties, {
-  damping: 5,
-  stiffness: 400,
-})
-
-useMove(
-  ({ event, moving, ...state }) => {
-    const x = event.pageX - boxRect.left - boxRect.width / 2
-    const y = event.pageY - boxRect.top - boxRect.height / 2
-
-    set({
-      x,
-      y,
-    })
-  },
-  {
-    domTarget: demoBox,
-  },
-)
-
-onMounted(() => {
-  boxRect = demoBox.value.getBoundingClientRect()
-})
+</script>
 ```
