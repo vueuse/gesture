@@ -2,38 +2,36 @@
 
 <WheelExample />
 
-```javascript
-import { ref } from 'vue'
-import { useWheel } from '@vueuse/gesture'
-import { useMotionProperties, useSpring } from '@vueuse/motion'
+```vue
+<template>
+  <!-- Directive usage -->
+  <div ref="demo" v-wheel="scrollHandler" />
+</template>
 
-const demoBox = ref()
+<script setup>
+const demo = ref()
 
-const { motionProperties } = useMotionProperties(demoElement, {
-  x: 0,
-  y: 0,
-})
+// Find more about `set()` on the "Integration" page
 
-const { set } = useSpring(motionProperties)
-
-useWheel(
-  ({ movement: [x, y], wheeling }) => {
-    if (!wheeling) {
-      set({
-        x: 0,
-        y: 0,
-      })
-
-      return
-    }
-
+const wheelHandler = ({ movement: [x, y], wheeling }) => {
+  if (!wheeling) {
     set({
-      y,
-      x,
+      x: 0,
+      y: 0,
     })
-  },
-  {
-    domTarget: demoBox,
-  },
-)
+
+    return
+  }
+
+  set({
+    y,
+    x,
+  })
+}
+
+// Composable usage
+useWheel(wheelHandler, {
+  domTarget: demo,
+})
+</script>
 ```
