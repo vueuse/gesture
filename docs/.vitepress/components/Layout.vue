@@ -120,12 +120,15 @@ const pageClasses = computed(() => {
 
 watch(interacting, (newVal) => {
   const body = document.querySelector('body')
+  const html = document.querySelector('html')
 
   if (newVal) {
+    html.classList.add('interacting')
     body.classList.add('interacting')
     return
   }
 
+  html.classList.remove('interacting')
   body.classList.remove('interacting')
 })
 </script>
