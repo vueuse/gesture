@@ -5,9 +5,9 @@
 - 🚀 **Plug** & **play**
 - 🕹 **Mouse** & **Touch** support
 - 🎮 **Directives** support (**v-drag**, **v-pinch**, **v-move**...)
-- 🤹 **Smooth motions** provided by [**vueuse/motion**](https://github.com/vueuse/motion)
 - ✨ Written in **TypeScript**
 - ✅ Supports **Vue 2 & 3** using [**vue-demi**](https://github.com/antfu/vue-demi)
+- 🤹 Plays well with [**vueuse/motion**](https://github.com/vueuse/motion) or **any other** animation solution
 
 [🌍 **Documentation**](https://gesture.vueuse.org)
 
