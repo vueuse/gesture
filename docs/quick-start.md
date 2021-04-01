@@ -36,6 +36,6 @@ const dragHandler = (dragState) => {
 </script>
 ```
 
-To see more about how to use **directives**, check out [**Directive Usage**](/directive-usage).
-
 To see more about the **gestures** event **data**, check out [**Gesture State**](/gesture-state).
+
+To see more about the **drag** gesture, check out [**useDrag**](/use-drag) page.
