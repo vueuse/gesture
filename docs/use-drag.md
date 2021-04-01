@@ -57,6 +57,10 @@ The component **stays** to **0** until a **swipe** is **detected**.
 
 ### `tap`
 
+Tap is a **boolean** for the **gesture** that will be **true** if the **gesture** can be **assimilated** to a **tap** or **click**.
+
+Usually **tap** is **used** with the [**filterTaps**](#filterTaps) option.
+
 ## Options
 
 ### `filterTaps`
