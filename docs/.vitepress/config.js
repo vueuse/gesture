@@ -71,14 +71,6 @@ module.exports = {
         text: 'Features',
         children: [
           {
-            text: 'Gesture state',
-            link: '/gesture-state',
-          },
-          {
-            text: 'Gesture options',
-            link: '/gesture-options',
-          },
-          {
             text: 'Drag',
             link: '/use-drag',
           },
@@ -105,6 +97,14 @@ module.exports = {
           {
             text: 'Gestures',
             link: '/use-gesture',
+          },
+          {
+            text: 'Gesture state',
+            link: '/gesture-state',
+          },
+          {
+            text: 'Gesture options',
+            link: '/gesture-options',
           },
           {
             text: 'Motion Integration',
