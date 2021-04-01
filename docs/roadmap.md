@@ -13,3 +13,4 @@ The **roadmap** includes:
 - ✔️ **Finishing documenting the whole API**
 - 👨‍💻 **Decent test suite**
 - 👨‍💻 **Better demos and examples**
+- ❓ **v-gesture supporting multiple events**
