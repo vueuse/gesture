@@ -1,5 +1,9 @@
 # 🕹 @vueuse/gesture
 
+[![npm](https://img.shields.io/npm/v/@vueuse/gesture.svg)](https://www.npmjs.com/package/@vueuse/gesture)
+[![npm](https://img.shields.io/npm/dm/@vueuse/gesture.svg)](https://npm-stat.com/charts.html?package=@vueuse/gesture)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ab1db459-8420-4bc6-9fac-2bc247fa2385/deploy-status)](https://app.netlify.com/sites/vueuse-gesture/deploys)
+
 **Vue Composables** making your app **interactive**
 
 - 🚀 **Plug** & **play**
