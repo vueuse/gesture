@@ -77,8 +77,7 @@ export class DragRecognizer extends CoordinatesRecognizer<'drag'> {
   }
 
   private shouldPreventWindowScrollY =
-    this.config.experimental_preventWindowScrollY &&
-    this.controller.supportsTouchEvents
+    this.config.preventWindowScrollY && this.controller.supportsTouchEvents
 
   private setUpWindowScrollDetection = (event: PointerEvent) => {
     persistEvent(event)

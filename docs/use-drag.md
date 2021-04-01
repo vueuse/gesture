@@ -40,7 +40,7 @@ useDrag(dragHandler, {
 In addition to regular [**Gesture Options**](/gesture-options), the **drag** gesture adds few attributes.
 
 ```javascript
-const bind = useDrag(({swipe, tap}) => doSomething(swipe, tap))
+const bind = useDrag(({ swipe, tap }) => doSomething(swipe, tap))
 ```
 
 ### `swipe`
@@ -63,7 +63,7 @@ The component **stays** to **0** until a **swipe** is **detected**.
 
 If **true**, the component **won't** trigger your drag **logic** if the user just **clicked** on the component.
 
-### `experimental_preventWindowScrollY`
+### `preventWindowScrollY`
 
 If **true**, drag **will** be triggered after **250ms** and will **prevent** window **scrolling**.
 

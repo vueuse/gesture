@@ -142,7 +142,7 @@ const InternalDragOptionsNormalizers = {
   useTouch(value = true) {
     return value && supportsTouchEvents()
   },
-  experimental_preventWindowScrollY(value = false) {
+  preventWindowScrollY(value = false) {
     return value
   },
   threshold(
