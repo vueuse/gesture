@@ -1,6 +1,6 @@
 # Scroll
 
-Scroll the box.
+**Scroll** the box.
 
 <ScrollExample />
 
@@ -13,7 +13,7 @@ Scroll the box.
 <script setup>
 const demo = ref()
 
-// Find more about `set()` and `mapper()` on the "Integration" page
+// Find more about `set()` and `mapper()` on the "Motion Integration" page
 
 const scrollHandler = ({ xy: [x, y], ...state }) => {
   set({

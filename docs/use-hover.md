@@ -13,7 +13,7 @@
 <script setup>
 const demo = ref()
 
-// Find more about `set()` on the "Integration" page
+// Find more about `set()` on the "Motion Integration" page
 
 const hoverHandler = ({ hovering }) => {
   if (hovering) set({ backgroundColor: '#7344be', scale: 1.5 })

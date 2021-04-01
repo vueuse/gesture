@@ -15,7 +15,7 @@ Both **axis** and **velocity** are **supported**.
 <script setup>
 const demo = ref()
 
-// Find more about `set()` on the "Integration" page
+// Find more about `set()` on the "Motion Integration" page
 
 const wheelHandler = ({ movement: [x, y], wheeling }) => {
   if (!wheeling) {
@@ -39,3 +39,11 @@ useWheel(wheelHandler, {
 })
 </script>
 ```
+
+## Specificities
+
+Mouse devices such as the **Macbook trackpad**, or the **Magic Mouse** have **inertia**
+
+There is **no** native **way** to **distinguish** between an actual **wheel intent** and its **resulting inertia**.
+
+To **detect** intent, you can use [**Lethargy**](https://github.com/d4nyll/lethargy).

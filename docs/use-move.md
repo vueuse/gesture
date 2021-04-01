@@ -13,7 +13,7 @@
 <script setup>
 const demo = ref()
 
-// Find more about `set()` on the "Integration" page
+// Find more about `set()` on the "Motion Integration" page
 
 const moveHandler = ({ event, moving, ...state }) => {
   // boxRect is coming from the getBoundingClientRect() of the parent element.
