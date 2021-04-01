@@ -50,9 +50,18 @@ const dragHandler = (dragState) => {
 </script>
 ```
 
-To see more about how to use **directives**, check out [**Directive Usage**](/directive-usage).
+To see more about the **gestures** events **data**, check out [**Gesture State**](https://gesture.vueuse.org/gesture-state.html).
 
-To see more about the **gestures** event **data**, check out [**Gesture State**](/gesture-state).
+To see more about the **gestures** options, check out [**Gesture Options**](https://gesture.vueuse.org/gesture-options.html).
+
+Also, here is a list of the available gestures:
+
+- [**Drag**](https://gesture.vueuse.org/use-drag.html)
+- [**Move**](https://gesture.vueuse.org/use-move.html)
+- [**Hover**](https://gesture.vueuse.org/use-hover.html)
+- [**Scroll**](https://gesture.vueuse.org/use-scroll.html)
+- [**Wheel**](https://gesture.vueuse.org/use-wheel.html)
+- [**Pinch**](https://gesture.vueuse.org/use-pinch.html)
 
 ## Credits
 
