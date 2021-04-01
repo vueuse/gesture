@@ -47,7 +47,7 @@ Here is a **nice example** of combining `v-motion` with `v-drag`:
 <template>
     <div
         v-motion="'demo'"
-        v-drag="dragHandler"
+        v-drag="handler"
     >
 </template>
 
