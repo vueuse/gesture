@@ -40,7 +40,7 @@ useDrag(dragHandler, {
 In addition to regular [**Gesture Options**](/gesture-options), the **drag** gesture adds few attributes.
 
 ```javascript
-const bind = useDrag(({ swipe, tap }) => doSomething(swipe, tap))
+useDrag(({ swipe, tap }) => doSomething(swipe, tap))
 ```
 
 ### `swipe`

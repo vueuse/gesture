@@ -11,7 +11,7 @@ Those distinctions are described on their gesture pages.
 With the exception of **xy** and **vxvy**, all the attributes below are common to all gestures.
 
 ```javascript
-const bind = useXXXX(state => {
+useXXXX(state => {
   const {
     event,       // the source event
     xy,          // [x,y] values (pointer position or scroll offset)

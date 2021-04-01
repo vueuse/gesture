@@ -36,7 +36,7 @@ usePinch(pinchHandler, {
 In addition to regular [**Gesture Options**](/gesture-options), the **pinch** gesture adds few attributes.
 
 ```javascript
-const bind = usePinch((state) => {
+usePinch((state) => {
   const {
     da, // [d,a] absolute distance and angle of the two pointers
     vdva, // momentum of the gesture of distance and rotation
