@@ -12,10 +12,6 @@
 
 [👀 **Demos**](https://vueuse-gesture-demo.netlify.app)
 
-This **package** is **currently** under **active** development.
-
-If you have any **suggestion**, please **submit** an **issue** or **ping** me on [**Twitter**](https://twitter.com/yaeeelglx).
-
 ## Quick Start
 
 Let's **get started** quickly by **installing** the **package** and adding the **plugin**.
