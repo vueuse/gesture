@@ -107,6 +107,10 @@ module.exports = {
             link: '/use-gesture',
           },
           {
+            text: 'Motion Integration',
+            link: '/motion-integration',
+          },
+          {
             text: 'Utilities',
             link: '/utilities',
           },
