@@ -10,7 +10,6 @@ As I think it is still more than **usable** in its current **state**, I'm **rele
 
 The **roadmap** includes:
 
-- 👨‍💻 **Finishing documenting the whole API**
+- ✔️ **Finishing documenting the whole API**
 - 👨‍💻 **Decent test suite**
 - 👨‍💻 **Better demos and examples**
-- ❓ **Swipe support (already achievable with [Drag](/use-drag))**
