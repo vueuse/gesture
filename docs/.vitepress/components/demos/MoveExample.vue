@@ -8,6 +8,7 @@
 import { ref, onMounted } from 'vue'
 import { useMove, useHover } from '@vueuse/gesture'
 import { useMotionProperties, useSpring } from '@vueuse/motion'
+import { useResizeObserver } from '@vueuse/core'
 
 const demoBox = ref()
 let boxRect = {}
@@ -42,7 +43,13 @@ useMove(
 )
 
 onMounted(() => {
+  const body = ref(document.querySelector('body'))
+
   boxRect = demoBox.value.getBoundingClientRect()
+
+  useResizeObserver(body, () => {
+    boxRect = demoBox.value.getBoundingClientRect()
+  })
 })
 
 useHover(
