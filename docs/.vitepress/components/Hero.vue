@@ -18,7 +18,7 @@
 
       <div ref="sources" class="action alt">
         <NavLink
-          :item="{ link: 'https://github.com/vueuse/motion', text: 'Sources' }"
+          :item="{ link: 'https://github.com/vueuse/gesture', text: 'Sources' }"
         />
       </div>
     </div>
