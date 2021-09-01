@@ -7,7 +7,7 @@
 ```vue
 <template>
   <!-- Directive usage -->
-  <div ref="demo" v-hover="hoverHanlder" />
+  <div ref="demo" v-hover="hoverHandler" />
 </template>
 
 <script setup>

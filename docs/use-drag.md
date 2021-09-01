@@ -7,7 +7,7 @@
 ```vue
 <template>
   <!-- Directive usage -->
-  <div ref="demo" v-drag="dragHanlder" />
+  <div ref="demo" v-drag="dragHandler" />
 </template>
 
 <script setup>
