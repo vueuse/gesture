@@ -18,10 +18,16 @@
     "use-gesture-vue",
     "interactive-vue"
   ],
-  "sideEffects": false,
-  "main": "dist/index.mjs",
+  "type": "module",
+  "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
   "scripts": {
     "build": "unbuild",
     "dev": "jiti scripts/watch.ts --cache",
@@ -65,7 +71,7 @@
     "@vue/test-utils": "^2.0.0-beta.13",
     "@vuedx/typecheck": "^0.7.4",
     "@vuedx/typescript-plugin-vue": "^0.7.4",
-    "@vueuse/motion": "^2.0.0-beta.4",
+    "@vueuse/motion": "^2.0.0-beta.9",
     "jest": "^27.4.5",
     "jiti": "^1.12.9",
     "lint-staged": "^12.1.5",
