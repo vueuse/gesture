@@ -1,9 +1,7 @@
-// @ts-check
-
 /**
  * @type {import('vitepress').UserConfig}
  */
-module.exports = {
+export default {
   title: '@vueuse/gesture',
   description: '🕹 Vue Composables making your app interactive',
   head: [

@@ -8,7 +8,7 @@ Those distinctions are described on their gesture pages.
 
 ## Configuration
 
-Depending on whether you use gesture-specific hooks, [**useGesture**](/use-gesture) hook or [**Directives**](/directives), you'll need to structure the config options object differently.
+Depending on whether you use gesture-specific hooks, [**useGesture**](/use-gesture) hook or **Directives**, you'll need to structure the config options object differently.
 
 ```vue
 <template>
