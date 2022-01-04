@@ -1,6 +1,6 @@
 # Hover
 
-**Hover** the box.
+Hover the box.
 
 <HoverExample />
 

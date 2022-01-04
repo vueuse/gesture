@@ -1,6 +1,6 @@
 # Utilities
 
-**@vueuse/gesture** uses a set of **utility** functions internally that are **exposed** for anybody's **convenience**.
+@vueuse/gesture uses a set of utility functions internally that are exposed for anybody's convenience.
 
 ## addV
 
@@ -24,7 +24,7 @@ subV([10, 5], [1, 2]) // Returns [9, 3]
 
 ## rubberbandIfOutOfBounds
 
-Calculates the **rubberbanding** effect from a given **position** value, two bounds min, max and an **elasticity** constant.
+Calculates the rubberbanding effect from a given position value, two bounds min, max and an elasticity constant.
 
 ```typescript
 function rubberbandIfOutOfBounds(

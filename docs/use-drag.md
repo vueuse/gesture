@@ -1,6 +1,6 @@
 # Drag
 
-**Drag** the box.
+Drag the box.
 
 <DragExample />
 
@@ -37,7 +37,7 @@ useDrag(dragHandler, {
 
 ## State
 
-In addition to regular [**Gesture Options**](/gesture-options), the **drag** gesture adds few attributes.
+In addition to regular [**Gesture Options**](/gesture-options), the drag gesture adds few attributes.
 
 ```javascript
 useDrag(({ swipe, tap }) => doSomething(swipe, tap))
@@ -45,31 +45,31 @@ useDrag(({ swipe, tap }) => doSomething(swipe, tap))
 
 ### `swipe`
 
-**Swipe** is a **convenient** state **attribute** for the **gesture** that will help you **detect** swipes.
+Swipe is a convenient state attribute for the gesture that will help you detect swipes.
 
-Swipe is a **vector** which both **components** are either **-1**, **0** or **1**.
+Swipe is a vector which both components are either -1, 0 or 1.
 
-The component **stays** to **0** until a **swipe** is **detected**.
+The component stays to 0 until a swipe is detected.
 
-**1** or **-1** indicates the **direction** of the **swipe**.
+1 or -1 indicates the direction of the swipe.
 
-**Left** or **right** on the **horizontal** axis, **top** or **bottom** on the **vertical** axis.
+Left or right on the horizontal axis, top or bottom on the vertical axis.
 
 ### `tap`
 
-Tap is a **boolean** for the **gesture** that will be **true** if the **gesture** can be **assimilated** to a **tap** or **click**.
+Tap is a boolean for the gesture that will be true if the gesture can be assimilated to a tap or click.
 
-Usually **tap** is **used** with the [**filterTaps**](#filterTaps) option.
+Usually tap is used with the [**filterTaps**](#filterTaps) option.
 
 ## Options
 
 ### `filterTaps`
 
-If **true**, the component **won't** trigger your drag **logic** if the user just **clicked** on the component.
+If true, the component won't trigger your drag logic if the user just clicked on the component.
 
 ### `preventWindowScrollY`
 
-If **true**, drag **will** be triggered after **250ms** and will **prevent** window **scrolling**.
+If true, drag will be triggered after 250ms and will prevent window scrolling.
 
 ### `useTouch`
 
@@ -81,24 +81,24 @@ Usually this is what you actually want, and the browser does it for you.
 
 But in some situations you may want the drag to persist while scrolling.
 
-In that case you'll need to indicate **@vueuse/gesturee** to use touch events, which aren't canceled on scroll.
+In that case you'll need to indicate @vueuse/gesturee to use touch events, which aren't canceled on scroll.
 
 ### `delay`
 
-If **set**, the **handler** will be **delayed** for the **duration** of the delay (in **ms**) — **or** if the user starts **moving**.
+If set, the handler will be delayed for the duration of the delay (in ms) — or if the user starts moving.
 
-When set to **true**, delay is **defaulted** to **180ms**.
+When set to true, delay is defaulted to 180ms.
 
-Note: **delay** and **threshold** don't play well together (without moving your pointer, your handler will never get triggered).
+Note: delay and threshold don't play well together (without moving your pointer, your handler will never get triggered).
 
 ### `swipeDistance`
 
-The **minimum** distance per **axis** (in **pixels**) the **gesture** needs to travel to **trigger** a **swipe**.
+The minimum distance per axis (in pixels) the gesture needs to travel to trigger a swipe.
 
 ### `swipeVelocity`
 
-The **minimum** velocity per axis (in **pixels / ms**) the **gesture** needs to reach before the **pointer** is **released**.
+The minimum velocity per axis (in pixels / ms) the gesture needs to reach before the pointer is released.
 
 ### `swipeDuration`
 
-The **maximum** duration in **milliseconds** that a **swipe** is **detected**.
+The maximum duration in milliseconds that a swipe is detected.

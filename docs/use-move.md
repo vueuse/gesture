@@ -1,6 +1,6 @@
 # Move
 
-**Move** inside the box.
+Move inside the box.
 
 <MoveExample />
 

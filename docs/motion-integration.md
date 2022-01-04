@@ -1,16 +1,16 @@
 # Motion Integration
 
-**Gesture support** is often **coupled** with some **spring physics** animation system.
+Gesture support is often coupled with some spring physics animation system.
 
-It **allows** the **gesture animations** to feel **smoother**, and more "**organic**".
+It allows the gesture animations to feel smoother, and more "organic".
 
 The original library, [**react-use-gesture**](https://use-gesture.netlify.app/), uses their own solution called [**react-spring**](https://www.react-spring.io).
 
-Luckily, [**I**](https://twitter.com/yaeeelglx) also made [**@vueuse/motion**](https://motion.vueuse.org) that **provides** a set of **composables** that plays well with **@vueuse/gesture**.
+Luckily, [**I**](https://twitter.com/yaeeelglx) also made [**@vueuse/motion**](https://motion.vueuse.org) that provides a set of composables that plays well with @vueuse/gesture.
 
 ## What is `set()` ?
 
-Looking at the **code examples**, you might have **noticed** a **function** called `set()`.
+Looking at the code examples, you might have noticed a function called `set()`.
 
 The `set()` function comes from the [**useSpring**](https://motion.vueuse.org/api/use-spring.html) composable from [**@vueuse/motion**](https://motion.vueuse.org).
 
@@ -37,11 +37,11 @@ const eventHandler = () => set({ x: 250, y: 200, cursor: 'default' })
 
 ## Directives support
 
-Using [**useSpring**](https://motion.vueuse.org/api/use-spring.html) with [**useMotionProperties**](https://motion.vueuse.org/api/use-motion-properties.html) allows **low level** data manipulations.
+Using [**useSpring**](https://motion.vueuse.org/api/use-spring.html) with [**useMotionProperties**](https://motion.vueuse.org/api/use-motion-properties.html) allows low level data manipulations.
 
 If you are already using [**@vueuse/motion**](https://motion.vueuse.org), you might be familiar with [**Directive Usage**](https://motion.vueuse.org/directive-usage.html).
 
-Here is a **nice example** of combining `v-motion` with `v-drag`:
+Here is a nice example of combining `v-motion` with `v-drag`:
 
 ```vue
 <template>

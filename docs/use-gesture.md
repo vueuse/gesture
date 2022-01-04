@@ -1,6 +1,6 @@
 # Gestures
 
-**useGesture** is a **composable** that allows you to manage **different** gestures at **once**.
+useGesture is a composable that allows you to manage different gestures at once.
 
 ```javascript
 useGesture(
@@ -28,7 +28,7 @@ useGesture(
 
 ## Configuration
 
-As described on [**Gesture Options**](/gesture-options) page, **useGesture** config allows you to **define options** for **each** type of **event**.
+As described on [**Gesture Options**](/gesture-options) page, useGesture config allows you to define options for each type of event.
 
 ```javascript
 // When you use the useGesture hook
@@ -47,6 +47,6 @@ useGesture((state) => doSomething(state), {
 
 ## Example
 
-A nice **usage example** can be found [**here**](https://vueuse-gesture-demo.netlify.app).
+A nice usage example can be found [**here**](https://vueuse-gesture-demo.netlify.app).
 
-The **code** from this **example** is [**here**](https://github.com/vueuse/gesture/blob/main/demo/src/components/MultiGesture.vue).
+The code from this example is [**here**](https://github.com/vueuse/gesture/blob/main/demo/src/components/MultiGesture.vue).

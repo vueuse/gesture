@@ -1,8 +1,8 @@
 # Wheel
 
-Use your mouse **wheel** or **trackpad**.
+Use your mouse wheel or trackpad.
 
-Both **axis** and **velocity** are **supported**.
+Both axis and velocity are supported.
 
 <WheelExample />
 
@@ -42,8 +42,8 @@ useWheel(wheelHandler, {
 
 ## Specificities
 
-Mouse devices such as the **Macbook trackpad**, or the **Magic Mouse** have **inertia**
+Mouse devices such as the Macbook trackpad, or the Magic Mouse have inertia
 
-There is **no** native **way** to **distinguish** between an actual **wheel intent** and its **resulting inertia**.
+There is no native way to distinguish between an actual wheel intent and its resulting inertia.
 
-To **detect** intent, you can use [**Lethargy**](https://github.com/d4nyll/lethargy).
+To detect intent, you can use [**Lethargy**](https://github.com/d4nyll/lethargy).

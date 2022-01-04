@@ -1,14 +1,14 @@
 # Quick Start
 
-Let's **get started** quickly by **installing** the **package** and adding the **plugin**.
+Let's get started quickly by installing the package and adding the plugin.
 
-From your **terminal**:
+From your terminal:
 
 ```bash
 pnpm add @vueuse/gesture
 ```
 
-In your **Vue** app **entry** file:
+In your Vue app entry file:
 
 ```javascript
 import { createApp } from 'vue'
@@ -22,7 +22,7 @@ app.use(GesturePlugin)
 app.mount('#app')
 ```
 
-You can now **interact** with any of your **component**, **HTML** or **SVG** elements using `v-drag` or any other **directive**.
+You can now interact with any of your component, **HTML** or **SVG** elements using `v-drag` or any other directive.
 
 ```vue
 <template>
@@ -36,6 +36,6 @@ const dragHandler = (dragState) => {
 </script>
 ```
 
-To see more about the **gestures** event **data**, check out [**Gesture State**](/gesture-state).
+To see more about the gestures event data, check out [**Gesture State**](/gesture-state).
 
-To see more about the **drag** gesture, check out [**useDrag**](/use-drag) page.
+To see more about the drag gesture, check out [**useDrag**](/use-drag) page.

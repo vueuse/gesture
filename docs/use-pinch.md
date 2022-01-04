@@ -1,8 +1,8 @@
 # Pinch
 
-**Pinch** the box.
+Pinch the box.
 
-Works best on **touch** devices, or using a laptop **trackpad**.
+Works best on touch devices, or using a laptop trackpad.
 
 <PinchExample />
 
@@ -33,7 +33,7 @@ usePinch(pinchHandler, {
 
 ## State
 
-In addition to regular [**Gesture Options**](/gesture-options), the **pinch** gesture adds few attributes.
+In addition to regular [**Gesture Options**](/gesture-options), the pinch gesture adds few attributes.
 
 ```javascript
 usePinch((state) => {
@@ -49,8 +49,8 @@ usePinch((state) => {
 
 ### `distanceBounds`
 
-**Limits** the **distance** for `movement` and `offset` to the specified **bounds**.
+Limits the distance for `movement` and `offset` to the specified bounds.
 
 ### `angleBounds`
 
-**Limits** the **angle** for `movement` and `offset` to the specified **bounds**.
+Limits the angle for `movement` and `offset` to the specified bounds.

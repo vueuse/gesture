@@ -1,14 +1,14 @@
 # Getting Started
 
-**vueuse/gesture** is a set of **Vue Composables** that aims at helping you making your **Vue** apps **interactive** through **pointer** and **touch** gesture support.
+vueuse/gesture is a set of Vue Composables that aims at helping you making your Vue apps interactive through pointer and touch gesture support.
 
-It is a **Vue port** of the **best gesture support library** **from** the **React** ecosystem, [**react-use-gesture**](https://github.com/pmndrs/react-use-gesture) by the **excellent collective**, [**Poimandres**](https://github.com/pmndrs).
+It is a Vue port of the best gesture support library from the React ecosystem, [**react-use-gesture**](https://github.com/pmndrs/react-use-gesture) by the excellent collective, [**Poimandres**](https://github.com/pmndrs).
 
-It includes an **additional layer** providing Vue support using both **composable functions** or **directives**.
+It includes an additional layer providing Vue support using both composable functions or directives.
 
-If you use this package and **encounter** any **problem**, please submit an **issue** on [**GitHub**](https://github.com/vueuse/motion).
+If you use this package and encounter any problem, please submit an issue on [**GitHub**](https://github.com/vueuse/motion).
 
-If you **liked** this package, please **follow** me on [**Twitter**](https://twitter.com/yaeeelglx).
+If you liked this package, please follow me on [**Twitter**](https://twitter.com/yaeeelglx).
 
 <Illustration />
 

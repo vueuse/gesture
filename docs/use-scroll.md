@@ -1,6 +1,6 @@
 # Scroll
 
-**Scroll** the box.
+Scroll the box.
 
 <ScrollExample />
 
