@@ -9,7 +9,7 @@ Both axis and velocity are supported.
 ```vue
 <template>
   <!-- Directive usage -->
-  <div ref="demo" v-wheel="scrollHandler" />
+  <div ref="demo" v-wheel="wheelHandler" />
 </template>
 
 <script setup>
