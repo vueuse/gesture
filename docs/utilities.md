@@ -17,7 +17,7 @@ addV([10, 5], [5, 7]) // Returns [15, 12]
 Substracts two vectors.
 
 ```javascript
-import { subV } from 'react-use-gesture'
+import { subV } from '@vueuse/gesture'
 
 subV([10, 5], [1, 2]) // Returns [9, 3]
 ```
@@ -27,10 +27,12 @@ subV([10, 5], [1, 2]) // Returns [9, 3]
 Calculates the rubberbanding effect from a given position value, two bounds min, max and an elasticity constant.
 
 ```typescript
-function rubberbandIfOutOfBounds(
+import { rubberbandIfOutOfBounds } from '@vueuse/gesture'
+
+rubberbandIfOutOfBounds(
   position: number,
   min: number,
   max: number,
   constant = 0.15,
-): number
+)
 ```
