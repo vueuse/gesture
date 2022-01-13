@@ -23,6 +23,7 @@ export const drag = () => {
     const controller = useDrag(binding.value, {
       domTarget: el,
       manual: true,
+      ...binding.arg as {}
     })
 
     controller.bind()
@@ -53,6 +54,7 @@ export const move = () => {
     const controller = useMove(binding.value, {
       domTarget: el,
       manual: true,
+      ...binding.arg as {}
     })
 
     controller.bind()
@@ -83,6 +85,7 @@ export const hover = () => {
     const controller = useHover(binding.value, {
       domTarget: el,
       manual: true,
+      ...binding.arg as {}
     })
 
     controller.bind()
@@ -113,6 +116,7 @@ export const pinch = () => {
     const controller = usePinch(binding.value, {
       domTarget: el,
       manual: true,
+      ...binding.arg as {}
     })
 
     controller.bind()
@@ -143,6 +147,7 @@ export const wheel = () => {
     const controller = useWheel(binding.value, {
       domTarget: el,
       manual: true,
+      ...binding.arg as {}
     })
 
     controller.bind()
@@ -173,6 +178,7 @@ export const scroll = () => {
     const controller = useScroll(binding.value, {
       domTarget: el,
       manual: true,
+      ...binding.arg as {}
     })
 
     controller.bind()
