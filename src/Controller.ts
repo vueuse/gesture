@@ -81,6 +81,13 @@ export default class Controller {
 
     clearAllWindowListeners(this)
   }
+
+  /**
+   * Resets state to the initial value.
+   */
+  public reset = (): void => {
+    this.state = getInitialState()
+  }
 }
 
 export function addEventIds(
