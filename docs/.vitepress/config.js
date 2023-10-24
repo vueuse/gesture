@@ -28,7 +28,7 @@ export default {
       'meta',
       {
         property: 'og:image',
-        content: 'https://gesture.vueuse.org/logo.svg',
+        content: 'https://gesture.vueuse.org/banner.png',
       },
     ],
     ['meta', { name: 'twitter:creator', content: '@yaeeelglx' }],
