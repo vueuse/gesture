@@ -36,6 +36,7 @@ export default {
       'meta',
       { name: 'twitter:image', content: 'https://gesture.vueuse.org/logo.svg' },
     ],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
   ],
   themeConfig: {
     repo: 'vueuse/gesture',
