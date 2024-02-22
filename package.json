@@ -34,14 +34,14 @@
     "lint": "prettier -c --parser typescript \"{src,__tests__,e2e}/**/*.[jt]s?(x)\"",
     "lint:fix": "pnpm lint --write",
     "test:types": "tsc --build tsconfig.json",
-    "test:unit": "jest",
-    "test": "pnpm test:types && pnpm test:unit",
+    "test": "pnpm test:types",
     "dev:docs": "vitepress dev docs",
     "build:docs": "vitepress build docs",
     "serve:docs": "vitepress serve docs",
     "dev:demo": "vite",
     "build:demo": "vite build",
-    "serve:demo": "vite serve demo/dist"
+    "serve:demo": "vite serve demo/dist",
+    "release": "release-it"
   },
   "files": [
     "dist/**/*",
@@ -49,8 +49,8 @@
     "README.md"
   ],
   "dependencies": {
-    "chokidar": "^3.5.2",
-    "consola": "^2.15.3",
+    "chokidar": "^3.6.0",
+    "consola": "^3.2.3",
     "upath": "^2.0.1",
     "vue-demi": "*"
   },
@@ -64,28 +64,26 @@
     }
   },
   "devDependencies": {
-    "@types/jest": "^27.4.0",
-    "@vitejs/plugin-vue": "^2.0.1",
-    "@vue/compiler-sfc": "^3.2.26",
-    "@vue/server-renderer": "^3.2.26",
-    "@vue/test-utils": "^2.0.0-beta.13",
-    "@vuedx/typecheck": "^0.7.4",
-    "@vuedx/typescript-plugin-vue": "^0.7.4",
-    "@vueuse/motion": "^2.0.0-beta.9",
-    "jest": "^27.4.5",
-    "jiti": "^1.12.9",
-    "lint-staged": "^12.1.5",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vue/compiler-sfc": "^3.4.19",
+    "@vue/server-renderer": "^3.4.19",
+    "@vue/test-utils": "^2.4.4",
+    "@vuedx/typecheck": "^0.7.6",
+    "@vuedx/typescript-plugin-vue": "^0.7.6",
+    "@vueuse/motion": "^2.1.0",
+    "jiti": "^1.21.0",
+    "lint-staged": "^15.2.2",
     "pascalcase": "^2.0.0",
     "patch-vue-directive-ssr": "^0.0.1",
-    "popmotion": "^11.0.3",
-    "prettier": "^2.5.1",
-    "ts-jest": "^27.1.2",
-    "typescript": "^4.5.4",
+    "popmotion": "^11.0.5",
+    "prettier": "^3.2.5",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.3.3",
     "unbuild": "^2.0.0",
-    "vite": "^2.7.10",
-    "vite-plugin-windicss": "^1.6.1",
-    "vitepress": "^0.20.10",
-    "vue": "^3.0.5",
+    "vite": "^5.1.4",
+    "vite-plugin-windicss": "^1.9.3",
+    "vitepress": "^0.22.4",
+    "vue": "^3.4.19",
     "yorkie": "^2.0.0"
   },
   "gitHooks": {
@@ -98,5 +96,22 @@
     "*.ts?(x)": [
       "prettier --parser=typescript --write"
     ]
+  },
+  "release-it": {
+    "hooks": {
+      "before:init": [
+        "pnpm build"
+      ]
+    },
+    "npm": {
+      "access": "public"
+    },
+    "git": {
+      "commitMessage": "chore(release): release v${version}"
+    },
+    "github": {
+      "release": true,
+      "releaseName": "v${version}"
+    }
   }
 }

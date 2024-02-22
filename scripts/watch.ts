@@ -5,6 +5,7 @@ import consola from 'consola'
 
 // Package root
 const rootDir = resolve(__dirname, '..')
+
 // Package src
 const src = resolve(__dirname, '../src')
 

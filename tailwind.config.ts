@@ -6,9 +6,9 @@ defineConfig({
   theme: {
     extend: {
       colors: {
+        ...colors,
         transparent: 'transparent',
         current: 'currentColor',
-        ...colors,
       },
     },
   },
