@@ -20,9 +20,12 @@ export const drag = () => {
       el.gestures = {}
     }
 
-    const controller = useDrag(binding.value, {
+    const config = binding.value.config ?? {}
+    const handler = binding.value.handler ?? binding.value
+    const controller = useDrag(handler, {
       domTarget: el,
       manual: true,
+      ...config,
     })
 
     controller.bind()
@@ -30,7 +33,7 @@ export const drag = () => {
     el.gestures.drag = controller
   }
 
-  const unregister: DirectiveHook = (el, binding, node) => {
+  const unregister: DirectiveHook = (el) => {
     if (!el.gestures || !el.gestures.drag) return
 
     el.gestures.drag.clean()
@@ -50,9 +53,12 @@ export const move = () => {
       el.gestures = {}
     }
 
-    const controller = useMove(binding.value, {
+    const config = binding.value.config ?? {}
+    const handler = binding.value.handler ?? binding.value
+    const controller = useMove(handler, {
       domTarget: el,
       manual: true,
+      ...config,
     })
 
     controller.bind()
@@ -80,9 +86,12 @@ export const hover = () => {
       el.gestures = {}
     }
 
-    const controller = useHover(binding.value, {
+    const config = binding.value.config ?? {}
+    const handler = binding.value.handler ?? binding.value
+    const controller = useHover(handler, {
       domTarget: el,
       manual: true,
+      ...config,
     })
 
     controller.bind()
@@ -110,9 +119,12 @@ export const pinch = () => {
       el.gestures = {}
     }
 
-    const controller = usePinch(binding.value, {
+    const config = binding.value.config ?? {}
+    const handler = binding.value.handler ?? binding.value
+    const controller = usePinch(handler, {
       domTarget: el,
       manual: true,
+      ...config,
     })
 
     controller.bind()
@@ -140,9 +152,12 @@ export const wheel = () => {
       el.gestures = {}
     }
 
-    const controller = useWheel(binding.value, {
+    const config = binding.value.config ?? {}
+    const handler = binding.value.handler ?? binding.value
+    const controller = useWheel(handler, {
       domTarget: el,
       manual: true,
+      ...config,
     })
 
     controller.bind()
@@ -170,9 +185,12 @@ export const scroll = () => {
       el.gestures = {}
     }
 
-    const controller = useScroll(binding.value, {
+    const config = binding.value.config ?? {}
+    const handler = binding.value.handler ?? binding.value
+    const controller = useScroll(handler, {
       domTarget: el,
       manual: true,
+      ...config,
     })
 
     controller.bind()
